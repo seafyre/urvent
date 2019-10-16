@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane orientation="vertical" id="FlowPane" styleClass="grayFlowPane" prefHeight="540" prefWidth="960" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.SampleViewModel">
+    <stylesheets>
+        <URL value="@/design/sampleview.css"/>
+    </stylesheets>
+    <Label styleClass="Label"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" >Hello ListView</Label>
+    <Label styleClass="Label"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label2" >Hello ListView</Label>
+</FlowPane>

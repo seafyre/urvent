@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.Label
+{
+    -fx-color : red;
+}
+
+.grayFlowPane
+{
+    -fx-background-color: #cccccc;
+}
+
+
