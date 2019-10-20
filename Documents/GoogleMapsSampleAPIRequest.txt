@@ -1,0 +1,2 @@
+Google Maps sample API request:
+https://www.google.com/maps/@?api=1&map_action=map&center=-33.712206,150.311941&zoom=12&basemap=terrain
