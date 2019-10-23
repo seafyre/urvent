@@ -34,5 +34,53 @@ function getUserByID($ID)
 
 }
 
+function getEventByID($ID)
+{
+	if($ID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM event WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+		return $data;
+	}
+
+}
+
+function getTicketByID($ID)
+{
+	if($ID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM ticket WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+		return $data;
+	}
+
+}
+
+function getLocationByID($ID)
+{
+	if($ID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM location WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+		return $data;
+	}
+
+}
+
+function getInvitationByID($ID)
+{
+	if($ID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM invitation WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+		return $data;
+	}
+
+}
+
 
 ?>
