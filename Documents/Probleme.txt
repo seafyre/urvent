@@ -1,0 +1,1 @@
+ParseReader liest nicht aus json_encode, ggf. [] fehlend
