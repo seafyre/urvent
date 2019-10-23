@@ -85,7 +85,48 @@ public class HTTP
     //TODO
     public static String get(String payload)
     {
-        
-        return null;
+        HttpURLConnection con = null;
+        int contentLength = payload.getBytes().length;
+        String response = "NoResponse";
+        try
+        {
+            con = getConnection(ADDRESS);
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+            con.setRequestProperty("Content-Length", Integer.toString(contentLength));
+            con.setRequestProperty("Content-Language","en-US");
+            con.setChunkedStreamingMode(0);
+            con.setDoOutput(true);
+
+            DataOutputStream dataOutputStream = new DataOutputStream(con.getOutputStream());
+            dataOutputStream.writeBytes(payload);
+            dataOutputStream.flush();
+            dataOutputStream.close();
+
+            InputStream inputStream = con.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder responseBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                responseBuilder.append(line);
+                System.out.println("reading " + line);
+            }
+            response = responseBuilder.toString();
+            reader.close();
+        }
+        catch (Exception e)
+        {
+            System.err.print("post failed!");
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.disconnect();
+            }
+        }
+
+        return response;
     }
 }

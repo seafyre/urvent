@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import tools.HTTP;
 
 /**
  * FXML Controller class
@@ -28,6 +29,7 @@ public class SampleViewModel implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         label.setText("programmatically assigned text");
+        System.out.println(HTTP.get(""));
     }    
     
 }
