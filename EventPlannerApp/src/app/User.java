@@ -57,7 +57,7 @@ public class User extends Model {
         }
 
         return "Didn't work! :(";
-        
+    }
         //2nd version
         public static void main(String[] args) {
                 
@@ -66,7 +66,7 @@ public class User extends Model {
         try (FileReader reader = new FileReader("user.json"))
         {
             //Read JSON file
-            Object obj = jsonParser.parse(reader);
+            Object obj = JSONParser.parse(reader);
  
             JSONArray userList = (JSONArray) obj;
             System.out.println(userList);
@@ -101,7 +101,7 @@ public class User extends Model {
     }
         //New user
         JSONObject userDetails = new JSONObject();
-        employeeDetails.put("id", "2");
-        employeeDetails.put("name", "Steven");
-        employeeDetails.put("mail", "hi@dumm.com");
+        userDetails.put("id", "2");
+        userDetailsDetails.put("name", "Steven");
+        userDetailsDetails.put("mail", "hi@dumm.com");
     }

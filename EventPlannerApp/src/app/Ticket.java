@@ -10,5 +10,6 @@ package app;
  * @author Nick
  */
 public class Ticket extends Model {
-    
+   public String qrData;
+   public ImageIcon qrCode;
 }

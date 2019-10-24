@@ -10,5 +10,7 @@ package app;
  * @author Nick
  */
 public class Invitation extends Model {
-    
+    public int relatedTicketID;
+    public User host;
+    public User guest;
 }

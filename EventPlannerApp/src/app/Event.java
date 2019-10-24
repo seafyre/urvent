@@ -10,5 +10,8 @@ package app;
  * @author Nick
  */
 public class Event extends Model{
+    public String desc;
+    public int location;
+    public invitedUsers User[];
     
 }

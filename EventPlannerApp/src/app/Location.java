@@ -10,5 +10,6 @@ package app;
  * @author Nick
  */
 public class Location extends Model {
-    
+    public String desc;
+    public int location;
 }
