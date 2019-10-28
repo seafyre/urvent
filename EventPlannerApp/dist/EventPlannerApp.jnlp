@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="EventPlannerApp.jar" size="11238" download="eager" />
+    <jar href="EventPlannerApp.jar" size="11296" download="eager" />
     <jar href="lib\core-3.3.4-SNAPSHOT-javadoc.jar" size="1081465" download="eager" />
     <jar href="lib\core-3.3.4-SNAPSHOT-sources.jar" size="474082" download="eager" />
     <jar href="lib\core-3.3.4-SNAPSHOT.jar" size="541103" download="eager" />

@@ -25,6 +25,9 @@ public class SampleViewModel implements Initializable
 
     @FXML
     private Label label;
+    
+    @FXML
+    private Label label3;
     /**
      * Initializes the controller class.
      */
@@ -35,6 +38,9 @@ public class SampleViewModel implements Initializable
         //System.out.println(HTTP.get("").toString());
         //JSONObject testJSON = JSON.readJSON("{\"ID\":\"1\",\"name\":\"test\",\"mail\":\"teastmail@test.tst\",\"password\":\"pw1\",\"loginToken\":\"\"}"); //Test JSON
         User testUser = new User(HTTP.get(""));
+        User testUser2 = new User(HTTP.get(""));
+        label3.setText(testUser.getMail());
+        //{"Command" : "getUser", "Param" : "1"}
         System.out.println(testUser.getMail());
     }    
     
