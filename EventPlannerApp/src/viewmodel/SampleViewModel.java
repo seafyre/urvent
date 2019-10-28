@@ -42,6 +42,17 @@ public class SampleViewModel implements Initializable
         label3.setText(testUser.getMail());
         //{"Command" : "getUser", "Param" : "1"}
         System.out.println(testUser.getMail());
-    }    
+    }
+
+    /**
+     * 
+     * diese funktion macht dies und das
+     * @param aParam blabla
+     * @return dasundas
+     */
+    private String aFunction(int aParam)
+    {
+        return null;
+    }
     
 }

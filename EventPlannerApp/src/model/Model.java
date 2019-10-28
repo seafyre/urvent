@@ -9,7 +9,8 @@ package model;
  *
  * @author Nick
  */
-public abstract class Model {
+public abstract class Model 
+{
     public int id;
     public String name;
 }
