@@ -7,9 +7,10 @@ package app;
 
 /**
  *
- * @author Nick
+ * @author Nick, Hendrik
  */
-public class Ticket extends Model {
+public class Ticket extends Model 
+{
    public String qrData;
-   public ImageIcon qrCode;
+   //public ImageIcon qrCode;
 }

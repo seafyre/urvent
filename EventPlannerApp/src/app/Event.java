@@ -7,11 +7,12 @@ package app;
 
 /**
  *
- * @author Nick
+ * @author Nick, Hendrik
  */
-public class Event extends Model{
+public class Event extends Model
+{
     public String desc;
     public int location;
-    public invitedUsers User[];
+    public User[] invitedUsers;
     
 }
