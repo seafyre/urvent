@@ -1,4 +1,4 @@
-package app;
+package model;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,9 +27,19 @@ public class User extends Model
     private int socialScore;
     private int ticketsOwned[];
 
+    /**
+     * Constructor, creates a new Model from a JSONObject
+     * @param json a JSONObject supplied by the HTTP Class 
+     */
+    public User(JSONObject json)
+    {
+        mail = (String) json.get("mail");
+        loginToken = (String) json.get("loginToken");
+    }
+    
     public String getMail()
     {
-        return null;
+        return this.mail;
     }
 
 }

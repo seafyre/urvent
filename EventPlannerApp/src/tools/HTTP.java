@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -83,7 +84,7 @@ public class HTTP
     }
     
     //TODO
-    public static String get(String payload)
+    public static JSONObject get(String payload)
     {
         HttpURLConnection con = null;
         int contentLength = payload.getBytes().length;
@@ -126,7 +127,9 @@ public class HTTP
                 con.disconnect();
             }
         }
-
-        return response;
+        
+        JSONObject json = JSON.readJSON(response);
+        
+        return json;
     }
 }

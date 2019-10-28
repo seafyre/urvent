@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app;
+package model;
 
 /**
  *
- * @author Nick
+ * @author Nick, Hendrik
  */
-public abstract class Model {
-    public int id;
-    public String name;
+public class Ticket extends Model 
+{
+   public String qrData;
+   //public ImageIcon qrCode;
 }
