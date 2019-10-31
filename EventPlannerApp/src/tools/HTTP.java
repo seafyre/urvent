@@ -19,7 +19,8 @@ import org.json.simple.JSONObject;
  */
 public class HTTP 
 {
-    public static String ADDRESS = "http://localhost/urvent/debug.php";
+    
+    public static String ADDRESS = "http://localhost/urvent/api.php";
 
     private static HttpURLConnection getConnection(String URLString)
     {
@@ -88,12 +89,14 @@ public class HTTP
     {
         HttpURLConnection con = null;
         int contentLength = payload.getBytes().length;
+        System.out.println(payload);
         String response = "NoResponse";
         try
         {
             con = getConnection(ADDRESS);
             con.setRequestMethod("GET");
             con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+            con.setRequestProperty("Accept", "application/json");
             con.setRequestProperty("Content-Length", Integer.toString(contentLength));
             con.setRequestProperty("Content-Language","en-US");
             con.setChunkedStreamingMode(0);
@@ -127,9 +130,10 @@ public class HTTP
                 con.disconnect();
             }
         }
-        
+        System.out.println(response);
         JSONObject json = JSON.readJSON(response);
         
         return json;
     }
+    
 }

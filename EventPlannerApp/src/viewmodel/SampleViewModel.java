@@ -11,7 +11,9 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import model.Event;
 import org.json.simple.JSONObject;
+import tools.APICommand;
 import tools.HTTP;
 import tools.JSON;
 
@@ -37,8 +39,10 @@ public class SampleViewModel implements Initializable
         label.setText("programmatically assigned text");
         //System.out.println(HTTP.get("").toString());
         //JSONObject testJSON = JSON.readJSON("{\"ID\":\"1\",\"name\":\"test\",\"mail\":\"teastmail@test.tst\",\"password\":\"pw1\",\"loginToken\":\"\"}"); //Test JSON
-        User testUser = new User(HTTP.get(""));
-        User testUser2 = new User(HTTP.get(""));
+        User testUser = new User(HTTP.get(APICommand.getUserByID(1)));
+        User testUser2 = new User(HTTP.get(APICommand.getUserByID(1)));
+        Event testEvent = new Event(HTTP.get(APICommand.getEventByID(1)));
+        System.out.println(testEvent.desc);
         label3.setText(testUser.getMail());
         //{"Command" : "getUser", "Param" : "1"}
         System.out.println(testUser.getMail());
