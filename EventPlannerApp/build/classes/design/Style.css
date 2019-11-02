@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02.11.2019, 12:52:26
+    Author     : Hendrik
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
+.rootPane
+{
+    -fx-background-color: #FFFFFF;
+    -fx-min-width: 1280;
+    -fx-min-height: 720;
+}
+
+.topBar
+{
+    -fx-background-color: #c6ff00;
+    -fx-min-width: 1280;
+    -fx-min-height: 56;
+    -fx-padding: 56;
+}
+
+.h1
+{
+   -fx-font-size : 400%;
+   -fx-font-family: 'Source Code Pro', monospace;
+   -fx-font-weight: 900;
+}
+
+.h2
+{
+   -fx-font-size : 300%;
+   -fx-font-family: 'Source Code Pro', monospace;
+}
+
+.h3
+{
+   -fx-font-size : 200%;
+   -fx-font-family: 'Source Code Pro', monospace;
+}

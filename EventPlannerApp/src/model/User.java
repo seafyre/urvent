@@ -22,7 +22,7 @@ public class User extends Model
 
     private String mail;
     private String loginToken;
-    private int eventsHostes[];
+    private int eventsHosted[];
     private int eventsInvited[];
     private int socialScore;
     private int ticketsOwned[];
@@ -35,6 +35,7 @@ public class User extends Model
     {
         mail = (String) json.get("mail");
         loginToken = (String) json.get("loginToken");
+        
     }
     
     public String getMail()

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.UserScreenViewModel">
+    <stylesheets>
+        <URL value="@/design/Style.css"/>
+    </stylesheets>
+    <content>
+    <VBox>
+        <children>
+            <HBox styleClass="topBar">
+                <children>
+                    <Label styleClass="h1">My Account</Label>
+                </children>
+            </HBox>
+            <VBox>
+                <children>
+                    <Label styleClass="h1"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="usernameLbl" >A h1 Text</Label>
+                    <Label styleClass="h2"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="usernameLbl2" >A h2 Text</Label>
+                    <Label styleClass="h3"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="usernameLbl3" >A h3 Text</Label>
+                </children>
+            </VBox>
+        </children>
+    </VBox>
+    </content>
+</ScrollPane>

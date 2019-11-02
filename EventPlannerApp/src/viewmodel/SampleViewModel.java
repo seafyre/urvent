@@ -49,7 +49,7 @@ public class SampleViewModel implements Initializable
         //JSONObject testJSON = JSON.readJSON("{\"ID\":\"1\",\"name\":\"test\",\"mail\":\"teastmail@test.tst\",\"password\":\"pw1\",\"loginToken\":\"\"}"); //Test JSON
         User testUser = new User(HTTP.get(APICommand.getUserByID(1)));
         User testUser2 = new User(HTTP.get(APICommand.getUserByID(1)));
-        Event testEvent = new Event(HTTP.get(APICommand.getEventByID(1)));
+        Event testEvent = new Event(HTTP.get(APICommand.getEventByID(2)));
         System.out.println(testEvent.desc);
         label3.setText(testUser.getMail());
         //{"Command" : "getUser", "Param" : "1"}
