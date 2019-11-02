@@ -33,6 +33,7 @@ public class User extends Model
      */
     public User(JSONObject json)
     {
+        id = Integer.valueOf((String) json.get("ID"));
         mail = (String) json.get("mail");
         loginToken = (String) json.get("loginToken");
         

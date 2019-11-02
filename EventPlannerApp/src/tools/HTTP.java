@@ -20,7 +20,8 @@ import org.json.simple.JSONObject;
 public class HTTP 
 {
     
-    public static String ADDRESS = "http://localhost/urvent/api.php";
+    public static String API_ADDRESS = "http://localhost/urvent/api.php";
+    public static String ADDRESS = "http://localhost/urvent/";
 
     private static HttpURLConnection getConnection(String URLString)
     {
@@ -44,7 +45,7 @@ public class HTTP
         String response = "NoResponse";
         try
         {
-            con = getConnection(ADDRESS);
+            con = getConnection(API_ADDRESS);
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
             con.setRequestProperty("Content-Length", Integer.toString(contentLength));
@@ -93,7 +94,7 @@ public class HTTP
         String response = "NoResponse";
         try
         {
-            con = getConnection(ADDRESS);
+            con = getConnection(API_ADDRESS);
             con.setRequestMethod("GET");
             con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
             con.setRequestProperty("Accept", "application/json");

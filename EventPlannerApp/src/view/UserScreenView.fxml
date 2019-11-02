@@ -3,6 +3,7 @@
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -19,11 +20,16 @@
                     <Label styleClass="h1">My Account</Label>
                 </children>
             </HBox>
-            <VBox>
+            <VBox styleClass="vBoxList">
                 <children>
-                    <Label styleClass="h1"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="usernameLbl" >A h1 Text</Label>
-                    <Label styleClass="h2"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="usernameLbl2" >A h2 Text</Label>
-                    <Label styleClass="h3"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="usernameLbl3" >A h3 Text</Label>
+                    <ImageView fx:id="profileImg" styleClass="profileImage">
+                        <image>
+                        </image>
+                    </ImageView>
+                    <Label styleClass="h2" fx:id="usernameLbl">Username</Label>
+                    <Label styleClass="h1"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl" >A h1 Text</Label>
+                    <Label styleClass="h2"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl2" >A h2 Text</Label>
+                    <Label styleClass="h3"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl3" >A h3 Text</Label>
                 </children>
             </VBox>
         </children>

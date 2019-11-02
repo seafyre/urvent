@@ -9,7 +9,7 @@ package viewmodel;
  *
  * @author Admin
  */
-public class ViewModel 
+public abstract class ViewModel 
 {
-    
+    protected abstract void loadData();
 }
