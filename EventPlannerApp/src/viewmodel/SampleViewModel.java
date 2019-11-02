@@ -8,14 +8,18 @@ package viewmodel;
 import model.User;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.Event;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
 import tools.JSON;
+import tools.QRGen;
 
 /**
  * FXML Controller class
@@ -30,6 +34,10 @@ public class SampleViewModel implements Initializable
     
     @FXML
     private Label label3;
+    
+    @FXML
+    private ImageView imgView;
+    
     /**
      * Initializes the controller class.
      */
@@ -45,7 +53,11 @@ public class SampleViewModel implements Initializable
         System.out.println(testEvent.desc);
         label3.setText(testUser.getMail());
         //{"Command" : "getUser", "Param" : "1"}
+        Image img = SwingFXUtils.toFXImage(QRGen.generateQRCode("hello world"), null);
+        imgView.setImage(img);
+        
         System.out.println(testUser.getMail());
+        
     }
 
     /**

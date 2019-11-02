@@ -29,7 +29,7 @@ public class QRGen
 		try
 		{
                     QRCodeWriter writer = new QRCodeWriter();
-                    BitMatrix matrix = writer.encode(Content, BarcodeFormat.QR_CODE, 512, 512);
+                    BitMatrix matrix = writer.encode(Content, BarcodeFormat.QR_CODE, 256, 256);
                     out = MatrixToImageWriter.toBufferedImage(matrix);
 		}
 		catch(Exception e)

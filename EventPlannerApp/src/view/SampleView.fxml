@@ -4,6 +4,7 @@
 <?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -14,4 +15,8 @@
     <Label styleClass="Label"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" >Hello ListView</Label>
     <Label styleClass="Label"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label2" >Hello ListView</Label>
     <Label styleClass="Label"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label3" >UserName</Label>
+    <ImageView fx:id="imgView">
+        <image>
+        </image>
+    </ImageView>
 </FlowPane>
