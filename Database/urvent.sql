@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Okt 2019 um 21:21
+-- Erstellungszeit: 03. Nov 2019 um 16:29
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `closedevent` (
-  `ID` int(10) UNSIGNED NOT NULL COMMENT 'TODO'
+  `ID` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -45,6 +45,13 @@ CREATE TABLE `event` (
   `descr` varchar(128) NOT NULL,
   `location` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `event`
+--
+
+INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`) VALUES
+(1, 1, 'testEvent', 'TestDescription', 1);
 
 -- --------------------------------------------------------
 
@@ -73,6 +80,13 @@ CREATE TABLE `location` (
   `owner` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Daten für Tabelle `location`
+--
+
+INSERT INTO `location` (`ID`, `name`, `descr`, `coordinates`, `owner`) VALUES
+(1, 'testLocation', 'TestLocationDescription', '0000,0000', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -96,10 +110,18 @@ CREATE TABLE `ticket` (
 CREATE TABLE `user` (
   `ID` int(10) UNSIGNED NOT NULL,
   `name` varchar(64) NOT NULL,
+  `descr` text,
   `mail` varchar(64) NOT NULL,
   `password` varchar(64) NOT NULL,
   `loginToken` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`ID`, `name`, `descr`, `mail`, `password`, `loginToken`) VALUES
+(1, 'test user', 'This is the use description Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'teastmail@test.tst', 'pw1', '');
 
 --
 -- Indizes der exportierten Tabellen
@@ -157,13 +179,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `closedevent`
 --
 ALTER TABLE `closedevent`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'TODO';
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `event`
 --
 ALTER TABLE `event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `invitation`
@@ -175,7 +197,7 @@ ALTER TABLE `invitation`
 -- AUTO_INCREMENT für Tabelle `location`
 --
 ALTER TABLE `location`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `ticket`
@@ -187,7 +209,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints der exportierten Tabellen

@@ -22,6 +22,7 @@ public class User extends Model
 
     private String mail;
     private String loginToken;
+    private String descr;
     private int eventsHosted[];
     private int eventsInvited[];
     private int socialScore;
@@ -35,6 +36,7 @@ public class User extends Model
     {
         id = Integer.valueOf((String) json.get("ID"));
         name = (String) json.get("name");
+        descr = (String) json.get("descr");
         mail = (String) json.get("mail");
         loginToken = (String) json.get("loginToken");
         
@@ -43,6 +45,11 @@ public class User extends Model
     public String getMail()
     {
         return this.mail;
+    }
+    
+    public String getDescr()
+    {
+        return this.descr;
     }
     
     public String getloginToken()

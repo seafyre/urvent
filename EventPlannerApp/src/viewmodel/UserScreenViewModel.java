@@ -12,9 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import model.User;
 import tools.APICommand;
 import tools.HTTP;
+import tools.TextUtil;
 
 /**
  * FXML Controller class
@@ -28,6 +30,12 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
     
     @FXML
     private Label usernameLbl;
+    
+    @FXML
+    private Text userDescrTxt;
+    
+    @FXML
+    private Label usermailLbl;
     
     User user = null;
     Image profileImage = null;
@@ -61,5 +69,7 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
     private void setLabels()
     {
         usernameLbl.setText(user.getName());
+        usermailLbl.setText(user.getMail());
+        userDescrTxt.setText(TextUtil.format(user.getDescr(),100));
     }
 }

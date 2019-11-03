@@ -22,12 +22,13 @@ and open the template in the editor.
     -fx-background-color: #c6ff00;
     -fx-min-width: 1280;
     -fx-min-height: 56;
-    -fx-padding: 56;
+    -fx-padding: 8;
 }
 
 .vBoxList
 {
     -fx-padding : 8;
+    -fx-max-width: 720; 
 }
 
 .h1
@@ -46,6 +47,12 @@ and open the template in the editor.
 .h3
 {
    -fx-font-size : 200%;
+   -fx-font-family: 'Source Code Pro', monospace;
+}
+
+.textBlockLong
+{
+   -fx-font-size : 150%;
    -fx-font-family: 'Source Code Pro', monospace;
 }
 
