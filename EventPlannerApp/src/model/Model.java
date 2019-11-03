@@ -11,6 +11,16 @@ package model;
  */
 public abstract class Model 
 {
-    public int id;
-    public String name;
+    protected int id;
+    protected String name;
+    
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    public int getID()
+    {
+        return this.id;
+    }
 }

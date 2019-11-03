@@ -34,6 +34,7 @@ public class User extends Model
     public User(JSONObject json)
     {
         id = Integer.valueOf((String) json.get("ID"));
+        name = (String) json.get("name");
         mail = (String) json.get("mail");
         loginToken = (String) json.get("loginToken");
         
@@ -42,6 +43,11 @@ public class User extends Model
     public String getMail()
     {
         return this.mail;
+    }
+    
+    public String getloginToken()
+    {
+        return this.loginToken;
     }
 
 }

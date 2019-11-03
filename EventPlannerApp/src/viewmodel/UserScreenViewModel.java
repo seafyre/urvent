@@ -38,6 +38,7 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
     {
         loadData();
+        setLabels();
     }    
     
     @Override
@@ -50,7 +51,7 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
     
     private Image loadProfileImage()
     {
-        String src = HTTP.ADDRESS + "userPics/" + user.id + ".png";
+        String src = HTTP.ADDRESS + "userPics/" + user.getID() + ".png";
         Image img = new Image(src, 128,128, false, false);
         System.out.println(src);
         
@@ -59,6 +60,6 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
     
     private void setLabels()
     {
-     
+        usernameLbl.setText(user.getName());
     }
 }
