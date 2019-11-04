@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.HomeViewModel">
+    <stylesheets>
+        <URL value="@/design/Style.css"/>
+    </stylesheets>
+    <content>
+    <VBox>
+        <children>
+            <HBox styleClass="topBar">
+                <children>
+                    <Label styleClass="h1">Home</Label>
+                </children>
+            </HBox>
+            <VBox styleClass="vBoxList">
+                <children>
+                    <ImageView fx:id="profileImg" styleClass="profileImage">
+                        <image>
+                        </image>
+                    </ImageView>
+                    <Label styleClass="h2" fx:id="welcomeLbl">WelcomeMessage</Label>
+                </children>
+            </VBox>
+        </children>
+    </VBox>
+    </content>
+</ScrollPane>

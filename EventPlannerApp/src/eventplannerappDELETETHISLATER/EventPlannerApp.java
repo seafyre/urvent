@@ -19,7 +19,7 @@ public class EventPlannerApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/UserScreenView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/HomeView.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/design/sampleview.css");
