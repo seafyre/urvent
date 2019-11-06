@@ -47,4 +47,10 @@ public class HomeViewModel extends ViewModel implements Initializable
     {
         user=new User(HTTP.get(APICommand.getUserByID(1)));
     }
+
+    @Override
+    protected void createHandlers() 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

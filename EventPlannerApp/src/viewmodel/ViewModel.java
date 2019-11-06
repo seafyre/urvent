@@ -12,4 +12,5 @@ package viewmodel;
 public abstract class ViewModel 
 {
     protected abstract void loadData();
+    protected abstract void createHandlers();
 }

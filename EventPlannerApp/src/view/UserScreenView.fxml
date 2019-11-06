@@ -19,6 +19,7 @@
             <HBox styleClass="topBar">
                 <children>
                     <Label styleClass="h1">My Account</Label>
+                    <Button fx:id="homeBtn">Home</Button>
                 </children>
             </HBox>
             <VBox styleClass="vBoxList">
