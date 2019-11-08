@@ -31,6 +31,11 @@ and open the template in the editor.
     -fx-max-width: 720; 
 }
 
+.hBoxList
+{
+    -fx-spacing: 8;
+}
+
 .h1
 {
    -fx-font-size : 400%;
@@ -72,4 +77,18 @@ and open the template in the editor.
     -fx-padding: 16;
     -fx-background-color: #FFFFFF;
     -fx-font-family: 'Source Code Pro', monospace;
+    -fx-alignment: CENTER;
+}
+
+.basicButtonDark
+{
+    -fx-border-style: none;
+    -fx-border-color: none;
+    -fx-border-radius: 0;
+    -fx-background-insets: 0,0,0;
+    -fx-background-radius: 0,0,0;
+    -fx-padding: 16;
+    -fx-background-color: #222222;
+    -fx-font-family: 'Source Code Pro', monospace;
+    -fx-alignment: CENTER;
 }

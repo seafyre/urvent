@@ -30,6 +30,22 @@
                     <Label styleClass="h2" fx:id="welcomeLbl">WelcomeMessage</Label>
                 </children>
             </VBox>
+            <GridPane alignment="CENTER_LEFT">
+                <HBox styleClass="hBoxList" GridPane.rowIndex="0" >
+                    <children>
+                        <Button styleClass="basicButtonDark" GridPane.columnIndex="0" >My Events</Button>
+                        <Button styleClass="basicButtonDark" GridPane.columnIndex="1">My Invitations</Button>
+                        <Button styleClass="basicButtonDark" GridPane.columnIndex="2">Accepted Invites</Button>
+                    </children>
+                </HBox>
+                <HBox styleClass="hBoxList" GridPane.rowIndex="1" >
+                    <children>
+                        <Button styleClass="basicButtonDark" GridPane.columnIndex="0">My Account</Button>
+                        <Button styleClass="basicButtonDark" GridPane.columnIndex="1">Calendar</Button>
+                        <Button styleClass="basicButtonDark" GridPane.columnIndex="2">Something</Button>
+                    </children>
+                </HBox>
+            </GridPane>
         </children>
     </VBox>
     </content>

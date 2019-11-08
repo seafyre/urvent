@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.HomeViewModel">
+    <stylesheets>
+        <URL value="@/design/Style.css"/>
+    </stylesheets>
+    <content>
+    <VBox>
+        <children>
+
+        </children>
+    </VBox>
+    </content>
+</ScrollPane>

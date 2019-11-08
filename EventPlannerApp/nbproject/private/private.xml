@@ -3,15 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/viewmodel/SampleViewModel.java</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/eventplannerappDELETETHISLATER/EventPlannerApp.java</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/viewmodel/HomeViewModel.java</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/view/HomeView.fxml</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/design/Style.css</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/view/SampleView.fxml</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/viewmodel/UserScreenViewModel.java</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/viewmodel/ViewModel.java</file>
-            <file>file:/C:/Users/Simon%20FH/Desktop/Documents/Studium/Softwareprojekte/Semester%203%20-%20Softwareprojekt%201/Echt/urvent/EventPlannerApp/src/view/UserScreenView.fxml</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/SampleView.fxml</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/eventplannerappDELETETHISLATER/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/UserScreenViewModel.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/UserScreenView.fxml</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/TextUtil.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/Event.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/design/sampleview.css</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/Ticket.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/EventHandlers/SwitchViewModelHandler.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/Location.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/HomeViewModel.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/ViewModel.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/LoginViewModel.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/design/Style.css</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/eventplannerappDELETETHISLATER/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/HTTP.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/eventplannerappDELETETHISLATER/EventPlannerApp.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/Invitation.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/SampleViewModel.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/QRGen.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/Model.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/EventHandlers/LoginButtonEventHandler.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/APICommand.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/HomeView.fxml</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/User.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/LoginView.fxml</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/JSON.java</file>
         </group>
     </open-files>
 </project-private>

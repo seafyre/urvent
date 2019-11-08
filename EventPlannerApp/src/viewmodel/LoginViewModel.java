@@ -5,10 +5,12 @@
  */
 package viewmodel;
 
+import EventHandlers.LoginButtonEventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import model.User;
 import tools.APICommand;
@@ -17,15 +19,17 @@ import tools.HTTP;
 /**
  * FXML Controller class
  *
- * @author Simon FH
+ * @author User
  */
-public class HomeViewModel extends ViewModel implements Initializable 
+public class LoginViewModel extends ViewModel implements Initializable 
 {
     @FXML
-    private Label welcomeLbl;
+    private Label aLbl;
     
+    @FXML
+    private Button loginBtn;
+            
     User user = null;
-    
     
     /**
      * Initializes the controller class.
@@ -35,13 +39,9 @@ public class HomeViewModel extends ViewModel implements Initializable
     {
         loadData();
         setLabels();
+        createHandlers();
     }    
-    
-    private void setLabels ()
-    {
-        welcomeLbl.setText("Hello "+ user.getName());
-    }
-    
+
     @Override
     protected void loadData() 
     {
@@ -51,6 +51,12 @@ public class HomeViewModel extends ViewModel implements Initializable
     @Override
     protected void createHandlers() 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        loginBtn.setOnAction(new LoginButtonEventHandler());
     }
+    
+    private void setLabels()
+    {
+        aLbl.setText(user.getName());
+    }
+    
 }
