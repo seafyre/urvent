@@ -21,8 +21,13 @@
                     <Label styleClass="h1">Login</Label>
                 </children>
             </HBox>
-            <Label fx:id="aLbl" styleClass="h1">A Label</Label>
-            <Button fx:id="loginBtn">Login</Button>
+            <VBox>
+                <Label fx:id="aLbl" styleClass="h1">A Label</Label>
+                <TextField maxWidth="512" styleClass="basicTextField" promptText="Mail" fx:id="mailTxtFld"></TextField>
+                <TextField maxWidth="512" styleClass="basicTextField" promptText="Password" fx:id="passwordTxtFld"></TextField>
+                <Button styleClass="basicButtonDark" fx:id="loginBtn">Login</Button>                
+            </VBox>
+
         </children>
     </VBox>
     </content>
