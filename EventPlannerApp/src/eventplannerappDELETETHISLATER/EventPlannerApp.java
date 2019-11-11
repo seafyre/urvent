@@ -35,7 +35,7 @@ public class EventPlannerApp extends Application
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        switchViewModel("/view/LoginView.fxml");
+        switchViewModel("/view/HomeView.fxml");
     }
 
     /**

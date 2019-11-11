@@ -91,6 +91,7 @@ and open the template in the editor.
     -fx-background-color: #222222;
     -fx-font-family: 'Source Code Pro', monospace;
     -fx-alignment: CENTER;
+    -fx-text-fill: #FFFFFF;
 }
 
 .basicTextField

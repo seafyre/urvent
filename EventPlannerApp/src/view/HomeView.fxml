@@ -33,16 +33,28 @@
             <GridPane alignment="CENTER_LEFT">
                 <HBox styleClass="hBoxList" GridPane.rowIndex="0" >
                     <children>
-                        <Button styleClass="basicButtonDark" GridPane.columnIndex="0" >My Events</Button>
-                        <Button styleClass="basicButtonDark" GridPane.columnIndex="1">My Invitations</Button>
-                        <Button styleClass="basicButtonDark" GridPane.columnIndex="2">Accepted Invites</Button>
+                        <Button fx:id="myEventsBtn" styleClass="basicButtonDark" GridPane.columnIndex="0">
+                            My Events
+                        </Button>
+                        <Button fx:id="myInvitationsBtn" styleClass="basicButtonDark" GridPane.columnIndex="1">
+                            My Invitations
+                        </Button>
+                        <Button fx:id="myAcceptedInvitationsBtn" styleClass="basicButtonDark" GridPane.columnIndex="2">
+                            Accepted Invites
+                        </Button>
                     </children>
                 </HBox>
                 <HBox styleClass="hBoxList" GridPane.rowIndex="1" >
                     <children>
-                        <Button styleClass="basicButtonDark" GridPane.columnIndex="0">My Account</Button>
-                        <Button styleClass="basicButtonDark" GridPane.columnIndex="1">Calendar</Button>
-                        <Button styleClass="basicButtonDark" GridPane.columnIndex="2">Something</Button>
+                        <Button fx:id="myAccountBtn" styleClass="basicButtonDark" GridPane.columnIndex="0">
+                            My Account
+                        </Button>
+                        <Button fx:id="calendarBtn" styleClass="basicButtonDark" GridPane.columnIndex="1">
+                            Calendar
+                        </Button>
+                        <Button fx:id="somethingBtn" styleClass="basicButtonDark" GridPane.columnIndex="2">
+                            Something
+                        </Button>
                     </children>
                 </HBox>
             </GridPane>

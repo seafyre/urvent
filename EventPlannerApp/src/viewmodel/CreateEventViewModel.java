@@ -5,33 +5,42 @@
  */
 package viewmodel;
 
+import EventHandlers.SwitchViewModelHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
  *
  * @author User
  */
-public class CreateEventViewModel extends ViewModel  implements Initializable {
+public class CreateEventViewModel extends ViewModel  implements Initializable 
+{
+    @FXML
+    private Button homeBtn;
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        createHandlers();
     }    
 
     @Override
-    protected void loadData() {
+    protected void loadData() 
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    protected void createHandlers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    protected void createHandlers() 
+    {
+        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml"));
     }
     
 }
