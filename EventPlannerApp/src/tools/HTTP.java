@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
@@ -135,6 +137,64 @@ public class HTTP
         JSONObject json = JSON.readJSON(response);
         
         return json;
+    }
+    
+        public static ArrayList<JSONObject> getArray(String payload)
+    {
+        HttpURLConnection con = null;
+        int contentLength = payload.getBytes().length;
+        System.out.println(payload);
+        String response = "NoResponse";
+        try
+        {
+            con = getConnection(API_ADDRESS);
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+            con.setRequestProperty("Accept", "application/json");
+            con.setRequestProperty("Content-Length", Integer.toString(contentLength));
+            con.setRequestProperty("Content-Language","en-US");
+            con.setChunkedStreamingMode(0);
+            con.setDoOutput(true);
+
+            DataOutputStream dataOutputStream = new DataOutputStream(con.getOutputStream());
+            dataOutputStream.writeBytes(payload);
+            dataOutputStream.flush();
+            dataOutputStream.close();
+
+            InputStream inputStream = con.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder responseBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                responseBuilder.append(line);
+                System.out.println("reading " + line);
+            }
+            response = responseBuilder.toString();
+            reader.close();
+        }
+        catch (Exception e)
+        {
+            System.err.print("post failed!");
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.disconnect();
+            }
+        }
+        System.out.println(response);
+        
+        ArrayList<JSONObject> resultList = new ArrayList<JSONObject>();
+        JSONArray jsonArr = JSON.readJSONArray(response);
+        for(Object n : jsonArr)
+        {
+            JSONObject jsonObj = JSON.readJSON(n.toString());
+            resultList.add(jsonObj);
+        }
+        
+        return resultList;
     }
     
 }

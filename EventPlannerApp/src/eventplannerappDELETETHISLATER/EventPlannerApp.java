@@ -30,7 +30,7 @@ public class EventPlannerApp extends Application
         app = this;
         MainStage = stage;
         
-        Parent root = FXMLLoader.load(getClass().getResource("/view/HomeView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/SampleView.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

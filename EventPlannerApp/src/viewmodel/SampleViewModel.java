@@ -7,6 +7,7 @@ package viewmodel;
 
 import model.User;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
@@ -47,16 +48,19 @@ public class SampleViewModel implements Initializable
         label.setText("programmatically assigned text");
         //System.out.println(HTTP.get("").toString());
         //JSONObject testJSON = JSON.readJSON("{\"ID\":\"1\",\"name\":\"test\",\"mail\":\"teastmail@test.tst\",\"password\":\"pw1\",\"loginToken\":\"\"}"); //Test JSON
-        User testUser = new User(HTTP.get(APICommand.getUserByID(1)));
-        User testUser2 = new User(HTTP.get(APICommand.getUserByID(1)));
-        Event testEvent = new Event(HTTP.get(APICommand.getEventByID(2)));
-        System.out.println(testEvent.desc);
-        label3.setText(testUser.getMail());
+        //User testUser = new User(HTTP.get(APICommand.getUserByID(1)));
+        //User testUser2 = new User(HTTP.get(APICommand.getUserByID(1)));
+        //Event testEvent = new Event(HTTP.get(APICommand.getEventByID(2)));
+        //System.out.println(testEvent.desc);
+        //label3.setText(testUser.getMail());
         //{"Command" : "getUser", "Param" : "1"}
-        Image img = SwingFXUtils.toFXImage(QRGen.generateQRCode("hello world"), null);
-        imgView.setImage(img);
-        
-        System.out.println(testUser.getMail());
+        //Image img = SwingFXUtils.toFXImage(QRGen.generateQRCode("hello world"), null);
+        //imgView.setImage(img);
+        ArrayList<JSONObject> out = HTTP.getArray(APICommand.getEventByUser(1));
+        for(JSONObject n : out)
+        {
+            System.out.println("JSONArray: " + n.toJSONString());
+        }
         
     }
 
