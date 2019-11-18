@@ -25,4 +25,10 @@ public class APICommand
         return command;        
     }
     
+    public static String getEventByUser(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getEventByUser\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
+    }
+    
 }

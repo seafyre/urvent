@@ -7,6 +7,7 @@ package tools;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -31,5 +32,20 @@ public class JSON
             ex.printStackTrace();
         }
         return json;
+    }
+    
+    public static JSONArray readJSONArray(String jsonString)
+    {
+        JSONArray array = null;
+        try 
+        {
+            array = (JSONArray)parser.parse(jsonString);
+        } 
+        catch (ParseException ex) 
+        {
+            ex.printStackTrace();
+        }
+        
+        return array;
     }
 }

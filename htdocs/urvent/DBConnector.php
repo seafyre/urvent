@@ -27,7 +27,7 @@ function getUserByID($ID)
 	if($ID != NULL)
 	{
 		$connection = openConnection();
-		$result = $connection->query("SELECT * FROM user WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$result = $connection->query("SELECT * FROM user WHERE ID = ".$ID, MYSQLI_USE_RESULT);
 		$data = $result->fetch_array(MYSQLI_ASSOC);
 		return $data;
 	}
@@ -39,11 +39,26 @@ function getEventByID($ID)
 	if($ID != NULL)
 	{
 		$connection = openConnection();
-		$result = $connection->query("SELECT * FROM event WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$result = $connection->query("SELECT * FROM event WHERE ID = ".$ID, MYSQLI_USE_RESULT);
 		$data = $result->fetch_array(MYSQLI_ASSOC);
 		return $data;
 	}
 
+}
+
+function getEventByUser($userID)
+{
+	if($userID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM event WHERE owner = ".$userID, MYSQLI_USE_RESULT);
+		$results = array();
+		foreach ($result as $n)
+		{
+			array_push($results, json_encode($n));
+		}
+		return $results;
+	}
 }
 
 function getTicketByID($ID)
@@ -51,7 +66,7 @@ function getTicketByID($ID)
 	if($ID != NULL)
 	{
 		$connection = openConnection();
-		$result = $connection->query("SELECT * FROM ticket WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$result = $connection->query("SELECT * FROM ticket WHERE ID = ".$ID, MYSQLI_USE_RESULT);
 		$data = $result->fetch_array(MYSQLI_ASSOC);
 		return $data;
 	}

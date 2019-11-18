@@ -16,9 +16,12 @@
     <content>
     <VBox>
         <children>
-            <HBox styleClass="topBar">
+            <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
                     <Label styleClass="h1">My Account</Label>
+                    <VBox>
+                        <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
+                    </VBox>
                 </children>
             </HBox>
             <VBox styleClass="vBoxList">

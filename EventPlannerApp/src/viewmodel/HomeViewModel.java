@@ -5,10 +5,12 @@
  */
 package viewmodel;
 
+import EventHandlers.SwitchViewModelHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import model.User;
 import tools.APICommand;
@@ -24,8 +26,25 @@ public class HomeViewModel extends ViewModel implements Initializable
     @FXML
     private Label welcomeLbl;
     
-    User user=null;
+    @FXML
+    private Button myEventsBtn;
     
+    @FXML
+    private Button myInvitationsBtn;
+    
+    @FXML
+    private Button myAcceptedInvitationsBtn;
+    
+    @FXML
+    private Button myAccountBtn;
+    
+    @FXML
+    private Button calendarBtn;
+    
+    @FXML
+    private Button somethingBtn;
+    
+    User user = null;
     
     /**
      * Initializes the controller class.
@@ -35,6 +54,7 @@ public class HomeViewModel extends ViewModel implements Initializable
     {
         loadData();
         setLabels();
+        createHandlers();
     }    
     
     private void setLabels ()
@@ -45,6 +65,15 @@ public class HomeViewModel extends ViewModel implements Initializable
     @Override
     protected void loadData() 
     {
-        user=new User(HTTP.get(APICommand.getUserByID(1)));
+        user = new User(HTTP.get(APICommand.getUserByID(1)));
+    }
+
+    @Override
+    protected void createHandlers() 
+    {
+        myEventsBtn.setOnAction(new SwitchViewModelHandler("/view/UserOwnedEventsView.fxml"));
+        myInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsView.fxml"));
+        myAcceptedInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsConfirmedView.fxml"));
+        myAccountBtn.setOnAction(new SwitchViewModelHandler("/view/UserScreenView.fxml"));
     }
 }

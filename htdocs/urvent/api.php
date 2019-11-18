@@ -20,6 +20,11 @@ elseif ($commandName == "getEventByID")
     $event = json_encode(getEventByID($parameter));
     echo($event);
 }
+elseif ($commandName == "getEventByUser")
+{
+  $events = json_encode(getEventByUser($parameter));
+  echo($events);
+}
 
 //print_r($commandName);
 

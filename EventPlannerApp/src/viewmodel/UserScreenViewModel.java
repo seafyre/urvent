@@ -5,10 +5,12 @@
  */
 package viewmodel;
 
+import EventHandlers.SwitchViewModelHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,7 +25,10 @@ import tools.TextUtil;
  *
  * @author User
  */
-public class UserScreenViewModel extends ViewModel implements Initializable {
+public class UserScreenViewModel extends ViewModel implements Initializable 
+{
+    @FXML
+    private Button homeBtn;
     
     @FXML
     private ImageView profileImg;
@@ -40,13 +45,14 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
     User user = null;
     Image profileImage = null;
     /**
-     * Initializes the controller class.
+     * Initializes the controller class. Don't touch the parameters!
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
         loadData();
         setLabels();
+        createHandlers();
     }    
     
     @Override
@@ -71,5 +77,11 @@ public class UserScreenViewModel extends ViewModel implements Initializable {
         usernameLbl.setText(user.getName());
         usermailLbl.setText(user.getMail());
         userDescrTxt.setText(TextUtil.format(user.getDescr(),100));
+    }
+
+    @Override
+    protected void createHandlers() 
+    {
+        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml"));
     }
 }
