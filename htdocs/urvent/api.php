@@ -12,13 +12,20 @@ $parameter = $command["param"];
 
 if($commandName == "getUserByID")
 {
-  $user = json_encode(getUserByID($parameter));
-  echo($user);
+  if (validRequest($command) == true)
+  {
+    $user = json_encode(getUserByID($parameter));
+    echo($user);
+  }
+
 }
 if($commandName == "getUserByMail")
 {
-  $user = json_encode(getUserByMail($parameter));
-  echo($user);
+  if (validRequest($command) == true)
+  {
+    $user = json_encode(getUserByMail($parameter));
+    echo($user);
+  }
 }
 elseif ($commandName == "login")
 {
@@ -38,6 +45,18 @@ elseif ($commandName == "getEventByUser")
   echo($events);
 }
 
+function validRequest($req)
+{
+  $usermail = $req["user"];
+  $token = $req["token"];
+  $dbRow = getUserByMail($usermail);
+  $valid = false;
+  if ($token == $dbRow["loginToken"])
+  {
+    $valid = true;
+  }
+  return $valid;
+}
 //print_r($commandName);
 
  ?>

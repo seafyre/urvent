@@ -13,15 +13,15 @@ public class APICommand
 {
     private static String commandPrefix = "payload=";
     
-    public static String getUserByID(int ID)
+    public static String getUserByID(int ID, String mail, String token)
     {
-        String command = commandPrefix + "{\"cmd\":\"getUserByID\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        String command = commandPrefix + "{\"cmd\":\"getUserByID\",\"csv\":\"false\",\"param\":\"" + ID +"\",\"user\":\"" + mail + "\",\"token\":\"" + token + "\"}";
         return command;
     }
     
-    public static String getUserByMail(String mail)
+    public static String getUserByMail(String mail, String token)
     {
-        String command = commandPrefix + "{\"cmd\":\"getUserByMail\",\"csv\":\"false\",\"param\":\"" + mail +"\"}";
+        String command = commandPrefix + "{\"cmd\":\"getUserByMail\",\"csv\":\"false\",\"param\":\"" + mail +"\",\"user\":\"" + mail + "\",\"token\":\"" + token + "\"}";
         return command;
     }
     

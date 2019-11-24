@@ -6,6 +6,7 @@
 package viewmodel;
 
 import EventHandlers.SwitchViewModelHandler;
+import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -65,7 +66,10 @@ public class HomeViewModel extends ViewModel implements Initializable
     @Override
     protected void loadData() 
     {
-        user = new User(HTTP.get(APICommand.getUserByID(1)));
+        int userID = EventPlannerApp.app.getActiveUser().getID();
+        String userMail = EventPlannerApp.app.getActiveUser().getMail();
+        String userToken = EventPlannerApp.app.getActiveUser().getloginToken();
+        user = new User(HTTP.get(APICommand.getUserByID(userID, userMail, userToken)));
     }
 
     @Override

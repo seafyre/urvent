@@ -36,7 +36,7 @@ public class LoginViewModel extends ViewModel implements Initializable
     @FXML
     private Button loginBtn;
             
-    User user = null;
+    //User user = null;
     
     /**
      * Initializes the controller class.
@@ -52,7 +52,7 @@ public class LoginViewModel extends ViewModel implements Initializable
     @Override
     protected void loadData() 
     {
-        user = new User(HTTP.get(APICommand.getUserByID(1)));
+
     }
 
     @Override
@@ -70,13 +70,15 @@ public class LoginViewModel extends ViewModel implements Initializable
     {
         String mail = mailTxtFld.getText();
         String pw = passwordTxtFld.getText();
-        JSONObject reply = HTTP.get(APICommand.tryLogin("teastmail@test.tst", "pw1"));
+        JSONObject reply = HTTP.get(APICommand.tryLogin(mail, pw));
         Boolean success = (Boolean)(reply.get("succ"));
         String token = reply.get("param").toString();
         if(success == true)
         {
-            User u = new User(HTTP.get(APICommand.getUserByMail(mail)));
-            EventPlannerApp.app.setActiveUser(user);
+            User u = new User(HTTP.get(APICommand.getUserByMail(mail, token)));
+            EventPlannerApp.app.setActiveUser(u);
+            //HTTP.get(APICommand.getUserByID(u.getID(), u.getMail(), u.getloginToken()));
+            EventPlannerApp.switchViewModel("/view/HomeView.fxml");
         }
         else
         {
