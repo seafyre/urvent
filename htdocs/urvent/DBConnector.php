@@ -41,8 +41,8 @@ function getUserByMail($mail)
 		$connection = openConnection();
 		$result = $connection->query("SELECT * FROM user WHERE mail = \"".$mail."\"", MYSQLI_USE_RESULT);
 		$data = $result->fetch_array(MYSQLI_ASSOC);
+		return $data;
 	}
-	return $data;
 }
 
 function getEventByID($ID)
@@ -184,8 +184,12 @@ function tryLogin($usermail, $password)
 			$reply = getReplyArray(false, "tryLogin", "");
 		}
 	}
-	//$user = getUserByID($creds["ID"]);
-	return $reply; //TODO return loginToken instead
+	return $reply;
+}
+
+function tryLoginWithToken($usermail, $token)
+{
+
 }
 
 function storeLoginToken($ID, $token)

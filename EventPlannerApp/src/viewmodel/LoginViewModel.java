@@ -6,14 +6,17 @@
 package viewmodel;
 
 import EventHandlers.LoginButtonEventHandler;
+import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.User;
+import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
 
@@ -55,12 +58,31 @@ public class LoginViewModel extends ViewModel implements Initializable
     @Override
     protected void createHandlers() 
     {
-        loginBtn.setOnAction(new LoginButtonEventHandler());
+        loginBtn.setOnAction(new LoginButtonEventHandler(this));
     }
     
     private void setLabels()
     {
 
+    }
+    
+    public void tryLogin()
+    {
+        String mail = mailTxtFld.getText();
+        String pw = passwordTxtFld.getText();
+        JSONObject reply = HTTP.get(APICommand.tryLogin("teastmail@test.tst", "pw1"));
+        Boolean success = (Boolean)(reply.get("succ"));
+        String token = reply.get("param").toString();
+        if(success == true)
+        {
+            User u = new User(HTTP.get(APICommand.getUserByMail(mail)));
+            EventPlannerApp.app.setActiveUser(user);
+        }
+        else
+        {
+            //TODO do something here
+        }
+        int n = 0;
     }
     
 }

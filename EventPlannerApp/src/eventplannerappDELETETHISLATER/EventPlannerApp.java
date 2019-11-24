@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  *
@@ -22,6 +23,8 @@ public class EventPlannerApp extends Application
 {
     public static EventPlannerApp app;
     private static Stage MainStage;
+    
+    private User activeUser;
     
     @Override
     public void start(Stage stage) throws Exception 
@@ -63,5 +66,15 @@ public class EventPlannerApp extends Application
         {
             Logger.getLogger(EventPlannerApp.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void setActiveUser(User user)
+    {
+        this.activeUser = user;
+    }
+    
+    public User getActiveUser()
+    {
+        return this.activeUser;
     }
 }

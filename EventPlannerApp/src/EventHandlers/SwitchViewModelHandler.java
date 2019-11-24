@@ -8,17 +8,19 @@ package EventHandlers;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import viewmodel.ViewModel;
 
 /**
  *
  * @author Admin
  */
-public class SwitchViewModelHandler implements EventHandler
+public class SwitchViewModelHandler extends VMEventHandler implements EventHandler
 {
     private String viewPath;
     
-    public SwitchViewModelHandler(String viewPath)
+    public SwitchViewModelHandler(String viewPath, ViewModel parent)
     {
+        super(parent);
         this.viewPath = viewPath;
     }
     

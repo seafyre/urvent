@@ -19,6 +19,12 @@ public class APICommand
         return command;
     }
     
+    public static String getUserByMail(String mail)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getUserByMail\",\"csv\":\"false\",\"param\":\"" + mail +"\"}";
+        return command;
+    }
+    
     public static String getEventByID(int ID)
     {
         String command = commandPrefix + "{\"cmd\":\"getEventByID\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";

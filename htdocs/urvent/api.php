@@ -1,7 +1,7 @@
 <?php
 require "DBConnector.php";
 
-//sampleRequest: localhost/urvent/api.php?payload={"cmd":"getUserByID","csv":"false","param":"1"}
+//sampleRequest: localhost/urvent/api.php?payload={"cmd":"getUserByID","csv":"false","param":"1","user":"usermail@mail.de","token" : "3536322425ffwsg"}
 //var_dump($_GET);
 //var_dump($_REQUEST);
 
@@ -13,6 +13,11 @@ $parameter = $command["param"];
 if($commandName == "getUserByID")
 {
   $user = json_encode(getUserByID($parameter));
+  echo($user);
+}
+if($commandName == "getUserByMail")
+{
+  $user = json_encode(getUserByMail($parameter));
   echo($user);
 }
 elseif ($commandName == "login")

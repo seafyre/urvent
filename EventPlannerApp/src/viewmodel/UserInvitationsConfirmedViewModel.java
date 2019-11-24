@@ -39,7 +39,7 @@ public class UserInvitationsConfirmedViewModel extends ViewModel implements Init
     @Override
     protected void createHandlers() 
     {
-        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml"));
+        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
     }
     
 }

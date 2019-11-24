@@ -82,6 +82,6 @@ public class UserScreenViewModel extends ViewModel implements Initializable
     @Override
     protected void createHandlers() 
     {
-        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml"));
+        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml", this));
     }
 }

@@ -71,9 +71,9 @@ public class HomeViewModel extends ViewModel implements Initializable
     @Override
     protected void createHandlers() 
     {
-        myEventsBtn.setOnAction(new SwitchViewModelHandler("/view/UserOwnedEventsView.fxml"));
-        myInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsView.fxml"));
-        myAcceptedInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsConfirmedView.fxml"));
-        myAccountBtn.setOnAction(new SwitchViewModelHandler("/view/UserScreenView.fxml"));
+        myEventsBtn.setOnAction(new SwitchViewModelHandler("/view/UserOwnedEventsView.fxml",this));
+        myInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsView.fxml",this));
+        myAcceptedInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsConfirmedView.fxml",this));
+        myAccountBtn.setOnAction(new SwitchViewModelHandler("/view/UserScreenView.fxml",this));
     }
 }
