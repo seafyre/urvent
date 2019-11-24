@@ -56,11 +56,12 @@ public class SampleViewModel implements Initializable
         //{"Command" : "getUser", "Param" : "1"}
         //Image img = SwingFXUtils.toFXImage(QRGen.generateQRCode("hello world"), null);
         //imgView.setImage(img);
-        ArrayList<JSONObject> out = HTTP.getArray(APICommand.getEventByUser(1));
+        /*ArrayList<JSONObject> out = HTTP.getArray(APICommand.getEventByUser(1));
         for(JSONObject n : out)
         {
             System.out.println("JSONArray: " + n.toJSONString());
-        }
+        }*/
+        System.out.println(HTTP.get(APICommand.tryLogin("teastmail@test.tst", "pw1")));
         
     }
 

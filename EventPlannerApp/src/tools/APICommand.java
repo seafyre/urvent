@@ -31,4 +31,11 @@ public class APICommand
         return command;        
     }
     
+    public static String tryLogin(String mail, String password)
+    {
+        String command = commandPrefix + "{\"cmd\":\"login\",\"csv\":\"false\",\"param\":\"" + "" +"\",\"um\":\"" + mail + "\",\"pw\":\"" + password +"\"}";
+        return command;        
+    }
+    
+    
 }

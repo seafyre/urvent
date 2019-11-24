@@ -34,6 +34,17 @@ function getUserByID($ID)
 
 }
 
+function getUserByMail($mail)
+{
+	if($mail != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM user WHERE mail = \"".$mail."\"", MYSQLI_USE_RESULT);
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+	}
+	return $data;
+}
+
 function getEventByID($ID)
 {
 	if($ID != NULL)
@@ -156,5 +167,39 @@ function updateTicketByID($ID, $owner, $event, $name, $qrdata)
     $connection = openConnection();
     $update = $connection->query("UPDATE ticket SET owner = '".$owner."', event = '".$event."', name = '".$name."', qrdata = '".$qrdata."' WHERE ID = '".$ID."'");
 }
+
+function tryLogin($usermail, $password)
+{
+	$success = false;
+	$creds = getUserByMail($usermail);
+	if ($creds != NULL)
+	{
+		if($creds["password"] == $password)
+		{
+			$success = true; //TODO gen loginToken
+			$token = createLoginToken($usermail);
+		}
+	}
+	$user = getUserByID($creds["ID"]);
+	return $user; //TODO return loginToken instead
+}
+
+function storeLoginToken($ID, $token)
+{
+	$connection = openConnection();
+	$result = $connection->query("	UPDATE user	SET LoginToken = \"".$token."\" WHERE ID = ".$ID.";");
+}
+
+function createLoginToken($usermail)
+{
+	$token = bin2hex(openssl_random_pseudo_bytes(32));
+
+	$user = getUserByMail($usermail);
+	$userID = $user["ID"];
+	storeLoginToken($userID, $token);
+
+	return $token;
+}
+
 
 ?>

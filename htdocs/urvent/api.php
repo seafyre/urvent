@@ -15,6 +15,13 @@ if($commandName == "getUserByID")
   $user = json_encode(getUserByID($parameter));
   echo($user);
 }
+elseif ($commandName == "login")
+{
+  $usermail = $command["um"];
+  $password = $command["pw"];
+  $result = json_encode(tryLogin($usermail, $password));
+  echo($result);
+}
 elseif ($commandName == "getEventByID")
 {
     $event = json_encode(getEventByID($parameter));

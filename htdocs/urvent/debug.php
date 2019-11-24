@@ -9,7 +9,6 @@ require "DBConnector.php";
 //print_r(json_encode(getTicketByID(1)));
 //setUserByID("steven", "haha@web.de", "123ll");
 //updateUserByID(8, "lol", "hahaa@web.de", "lala")
-$arr = getEventByUser(1);
-
-print_r(json_encode($arr));
+$arr = getUserByMail("teastmail@test.tst");
+print_r($arr);
  ?>
