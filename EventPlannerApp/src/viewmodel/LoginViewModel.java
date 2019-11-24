@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import model.User;
 import tools.APICommand;
 import tools.HTTP;
@@ -24,7 +25,10 @@ import tools.HTTP;
 public class LoginViewModel extends ViewModel implements Initializable 
 {
     @FXML
-    private Label aLbl;
+    private TextField mailTxtFld;
+    
+    @FXML
+    private TextField passwordTxtFld;
     
     @FXML
     private Button loginBtn;
@@ -56,7 +60,7 @@ public class LoginViewModel extends ViewModel implements Initializable
     
     private void setLabels()
     {
-        aLbl.setText(user.getName());
+
     }
     
 }

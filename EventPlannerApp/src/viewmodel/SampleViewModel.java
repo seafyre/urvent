@@ -61,7 +61,7 @@ public class SampleViewModel implements Initializable
         {
             System.out.println("JSONArray: " + n.toJSONString());
         }*/
-        System.out.println(HTTP.get(APICommand.tryLogin("teastmail@test.tst", "pw1")));
+        System.out.println("loginDbg: " + HTTP.get(APICommand.tryLogin("teastmail@test.tst", "pw1")));
         
     }
 

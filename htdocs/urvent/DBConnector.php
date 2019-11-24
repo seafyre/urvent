@@ -1,5 +1,5 @@
 <?php
-
+require "tools.php";
 /**
 *Get a connection to the Database
 *@return connection
@@ -170,18 +170,22 @@ function updateTicketByID($ID, $owner, $event, $name, $qrdata)
 
 function tryLogin($usermail, $password)
 {
-	$success = false;
 	$creds = getUserByMail($usermail);
+	$reply;
 	if ($creds != NULL)
 	{
 		if($creds["password"] == $password)
 		{
-			$success = true; //TODO gen loginToken
 			$token = createLoginToken($usermail);
+			$reply = getReplyArray(true, "tryLogin", $token);
+		}
+		else
+		{
+			$reply = getReplyArray(false, "tryLogin", "");
 		}
 	}
-	$user = getUserByID($creds["ID"]);
-	return $user; //TODO return loginToken instead
+	//$user = getUserByID($creds["ID"]);
+	return $reply; //TODO return loginToken instead
 }
 
 function storeLoginToken($ID, $token)
