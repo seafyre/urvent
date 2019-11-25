@@ -72,6 +72,11 @@ public class UserScreenViewModel extends ViewModel implements Initializable
         String src = HTTP.ADDRESS + "userPics/" + user.getID() + ".png";
         Image img = new Image(src, 128,128, false, false);
         System.out.println(src);
+        if(img.getPixelReader() == null)
+        {
+            src = HTTP.ADDRESS + "userPics/" + user.getID() + ".jpg";
+            img = new Image(src, 128,128, false, false);
+        }
         
         return img;
     }
@@ -80,7 +85,10 @@ public class UserScreenViewModel extends ViewModel implements Initializable
     {
         usernameLbl.setText(user.getName());
         usermailLbl.setText(user.getMail());
-        userDescrTxt.setText(TextUtil.format(user.getDescr(),100));
+        if(user.getDescr() != null)
+        {
+            userDescrTxt.setText(TextUtil.format(user.getDescr(),100));   
+        }
     }
 
     @Override

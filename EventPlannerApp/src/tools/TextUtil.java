@@ -13,19 +13,27 @@ public class TextUtil
 {
     public static String format(String in, int charsPerLine)
     {
-        String out = in;
-        StringBuilder sb = new StringBuilder(out);
-        int pointer = 0;
-        for(int n = 0; n < sb.length(); n++)
+        try
         {
-            pointer++;
-            if(pointer == charsPerLine)
+            String out = in;
+            StringBuilder sb = new StringBuilder(out);
+            int pointer = 0;
+            for(int n = 0; n < sb.length(); n++)
             {
-                sb.insert(n, "\n");
-                pointer = 0;
+                pointer++;
+                if(pointer == charsPerLine)
+                {
+                    sb.insert(n, "\n");
+                    pointer = 0;
+                }
             }
+
+            return sb.toString();   
         }
-        
-        return sb.toString();
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

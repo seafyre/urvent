@@ -6,6 +6,7 @@
 package viewmodel;
 
 import EventHandlers.LoginButtonEventHandler;
+import EventHandlers.SwitchViewModelHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +36,9 @@ public class LoginViewModel extends ViewModel implements Initializable
     
     @FXML
     private Button loginBtn;
+    
+    @FXML
+    private Button createAccBtn;
             
     //User user = null;
     
@@ -59,6 +63,7 @@ public class LoginViewModel extends ViewModel implements Initializable
     protected void createHandlers() 
     {
         loginBtn.setOnAction(new LoginButtonEventHandler(this));
+        createAccBtn.setOnAction(new SwitchViewModelHandler("/view/CreateAccountView.fxml", this));
     }
     
     private void setLabels()
@@ -82,9 +87,10 @@ public class LoginViewModel extends ViewModel implements Initializable
         }
         else
         {
-            //TODO do something here
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Login Failed");
+            a.showAndWait();
         }
-        int n = 0;
     }
     
 }

@@ -18,12 +18,19 @@
         <children>
             <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
-                    <Label styleClass="h1">My Account</Label>
-                    <VBox>
-                        <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
-                    </VBox>
+                    <Label styleClass="h1">Create your Account</Label>
                 </children>
             </HBox>
+            <VBox>
+                <children>
+                    <TextField maxWidth="512" styleClass="basicTextField" promptText="Username" fx:id="nameTxtFld"></TextField>
+                    <TextField maxWidth="512" styleClass="basicTextField" promptText="Mail" fx:id="mailTxtFld"></TextField>
+                    <TextField maxWidth="512" styleClass="basicTextField" promptText="Password" fx:id="pwTxtFld1"></TextField>
+                    <TextField maxWidth="512" styleClass="basicTextField" promptText="Confirm Password" fx:id="pwTxtFld2"></TextField>
+                    <Button styleClass="basicButtonDark" fx:id="confirmBtn">Submit</Button> 
+                    <Button styleClass="basicButtonDark" fx:id="cancelBtn">Cancel</Button> 
+                </children>
+            </VBox>
         </children>
     </VBox>
     </content>

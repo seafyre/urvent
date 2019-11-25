@@ -19,7 +19,7 @@ if($commandName == "getUserByID")
   }
 
 }
-if($commandName == "getUserByMail")
+elseif($commandName == "getUserByMail")
 {
   if (validRequest($command) == true)
   {
@@ -43,6 +43,14 @@ elseif ($commandName == "getEventByUser")
 {
   $events = json_encode(getEventByUser($parameter));
   echo($events);
+}
+elseif ($commandName = "insertNewUser")
+{
+  $name = $command["un"];
+  $mail = $command["um"];
+  $password = $command["pw"];
+  $result = insertNewUser($name, $mail, $password);
+  echo($result);
 }
 
 function validRequest($req)

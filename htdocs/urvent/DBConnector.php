@@ -108,10 +108,12 @@ function getInvitationByID($ID)
 
 }
 
-function setUserByID($name, $mail, $password)
+function insertNewUser($name, $mail, $password)
 {
     $connection = openConnection();
-    $entry = $connection->query("INSERT INTO user VALUES (DEFAULT, '".$name."', '".$mail."', '".$password."', DEFAULT)");
+    $entry = $connection->query("INSERT into user (name,mail,password) VALUES (\"$name\",\"$mail\",\"$password\")");
+		$reply = json_encode(getReplyArray(true, "insertNewUser", ""));
+		return $reply;
 }
 
 function setTicketByID($owner, $event, $name, $qrdata)
@@ -172,18 +174,17 @@ function tryLogin($usermail, $password)
 {
 	$creds = getUserByMail($usermail);
 	$reply;
-	if ($creds != NULL)
+
+	if($creds["password"] == $password)
 	{
-		if($creds["password"] == $password)
-		{
-			$token = createLoginToken($usermail);
-			$reply = getReplyArray(true, "tryLogin", $token);
-		}
-		else
-		{
-			$reply = getReplyArray(false, "tryLogin", "");
-		}
+		$token = createLoginToken($usermail);
+		$reply = getReplyArray(true, "tryLogin", $token);
 	}
+	else
+	{
+		$reply = getReplyArray(false, "tryLogin", "");
+	}
+
 	return $reply;
 }
 

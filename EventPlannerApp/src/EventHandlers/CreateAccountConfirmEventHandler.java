@@ -7,35 +7,26 @@ package EventHandlers;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import viewmodel.LoginViewModel;
+import viewmodel.CreateAccountViewModel;
 import viewmodel.ViewModel;
 
 /**
  *
  * @author User
  */
-public class LoginButtonEventHandler extends VMEventHandler implements EventHandler
+public class CreateAccountConfirmEventHandler extends VMEventHandler implements EventHandler
 {
 
-    public LoginButtonEventHandler(ViewModel parent)
+    public CreateAccountConfirmEventHandler(ViewModel parent) 
     {
         super(parent);
     }
-    
+
     @Override
     public void handle(Event event) 
     {
-        try
-        {
-            LoginViewModel p = (LoginViewModel)parent;
-            p.tryLogin();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
+        CreateAccountViewModel p = (CreateAccountViewModel)parent;
+        p.createNewUser();
     }
     
 }

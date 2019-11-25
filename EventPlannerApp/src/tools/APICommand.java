@@ -43,5 +43,11 @@ public class APICommand
         return command;        
     }
     
+    public static String insertNewUser(String mail, String name, String password)
+    {
+        String command = commandPrefix + "{\"cmd\":\"insertNewUser\",\"csv\":\"false\",\"param\":\"" + "" + "\",\"un\":\"" + name + "\",\"um\":\"" + mail + "\",\"pw\":\"" + password +"\"}";
+        return command;
+    }
+    
     
 }

@@ -9,6 +9,7 @@ require "DBConnector.php";
 //print_r(json_encode(getTicketByID(1)));
 //setUserByID("steven", "haha@web.de", "123ll");
 //updateUserByID(8, "lol", "hahaa@web.de", "lala")
-$arr = getUserByMail("teastmail@test.tst");
+//$arr = json_encode(tryLogin("teastmail@test.tst","efa"));
+$arr = insertNewUser("testUserN", "testMail@mail.me", "testPW");
 print_r($arr);
  ?>
