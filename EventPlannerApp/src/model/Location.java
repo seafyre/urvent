@@ -5,11 +5,38 @@
  */
 package model;
 
+import org.json.simple.JSONObject;
+
 /**
  *
- * @author Nick
+ * @author Nick, Hendrik
  */
-public class Location extends Model {
-    public String desc;
-    public int location;
+public class Location extends Model 
+{
+    private String desc;
+    private String coordinates;
+    private int owner;
+    
+    public Location(JSONObject json)
+    {
+        this.id = Integer.valueOf((String)json.get("ID"));
+        this.name = (String)json.get("name");
+        this.desc = (String) json.get("descr");
+        this.owner = Integer.valueOf((String)json.get("owner"));
+    }
+    
+    public String getDescr()
+    {
+        return desc;
+    }
+    
+    public String getCoordinates()
+    {
+        return coordinates;
+    }
+    
+    public int getOwner()
+    {
+        return owner;
+    }
 }

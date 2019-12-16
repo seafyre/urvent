@@ -15,7 +15,7 @@ import viewmodel.ViewModel;
  *
  * @author User
  */
-public class LoginButtonEventHandler extends VMEventHandler implements EventHandler
+public class LoginButtonEventHandler extends VMEventHandler
 {
 
     public LoginButtonEventHandler(ViewModel parent)

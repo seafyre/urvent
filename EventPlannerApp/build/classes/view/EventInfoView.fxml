@@ -18,12 +18,23 @@
         <children>
             <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
-                    <Label styleClass="h1">Event</Label>
+                    <Label styleClass="h1">Event Information</Label>
                     <VBox>
-                        <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
+                        <children>
+                            <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
+                        </children>
                     </VBox>
                 </children>
             </HBox>
+        <VBox>
+            <children>
+                <Label styleClass="h3" fx:id="evtNameLbl">Event Name</Label>
+                <Label styleClass="h3" fx:id="evtDescrLbl">Event Description</Label>
+                <Label styleClass="h3" fx:id="evtDateLbl">00.00.0000</Label>
+                <Label styleClass="h3" fx:id="evtLocationLbl">Location Name</Label>
+                <Button styleClass="basicButtonDark" fx:id="editEventBtn">Edit Event</Button>
+            </children>
+        </VBox>
         </children>
     </VBox>
     </content>

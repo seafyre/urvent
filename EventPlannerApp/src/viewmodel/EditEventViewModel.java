@@ -6,6 +6,7 @@
 package viewmodel;
 
 import EventHandlers.SwitchViewModelHandler;
+import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ public class EditEventViewModel extends ViewModel implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        EventPlannerApp.app.setActiveVM(this);
         createHandlers();
     }    
 

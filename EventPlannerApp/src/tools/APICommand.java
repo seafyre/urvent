@@ -31,6 +31,12 @@ public class APICommand
         return command;        
     }
     
+    public static String getLocationByID(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getLocationByID\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
+    }
+    
     public static String getEventByUser(int ID)
     {
         String command = commandPrefix + "{\"cmd\":\"getEventByUser\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
@@ -47,6 +53,26 @@ public class APICommand
     {
         String command = commandPrefix + "{\"cmd\":\"insertNewUser\",\"csv\":\"false\",\"param\":\"" + "" + "\",\"un\":\"" + name + "\",\"um\":\"" + mail + "\",\"pw\":\"" + password +"\"}";
         return command;
+    }
+    
+    //owner,name,descr,location
+    public static String insertNewEvent(int owner, String name, String descr, int location)
+    {
+        String command = commandPrefix + "{\"cmd\":\"insertNewEvent\",\"csv\":\"false\",\"param\":\"\",\"owner\":\"" + owner + "\",\"name\":\"" + name + "\",\"descr\":\"" + descr + "\",\"location\":\"" + location + "\"}";
+        return command;
+    }
+    
+    //$name, $descr, $coordinates, $owner
+    public static String insertNewLocation(String name, String descr, String coordinates, int owner)
+    {
+        String command = commandPrefix + "{\"cmd\":\"insertNewLocation\",\"csv\":\"false\",\"param\":\"\",\"name\":\"" + name + "\",\"descr\":\"" + descr + "\",\"coordinates\":\"" + coordinates + "\",\"owner\":\"" + owner + "\"}";
+        return command;
+    }
+    
+    public static String getLocationByUser(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getLocationByUser\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
     }
     
     

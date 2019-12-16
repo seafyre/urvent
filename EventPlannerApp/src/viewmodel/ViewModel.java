@@ -5,6 +5,8 @@
  */
 package viewmodel;
 
+import eventplannerappDELETETHISLATER.EventPlannerApp;
+
 /**
  *
  * @author Admin
@@ -13,4 +15,10 @@ public abstract class ViewModel
 {
     protected abstract void loadData();
     protected abstract void createHandlers();
+    public Object[] params;
+    
+    protected void clearParamDump()
+    {
+        EventPlannerApp.app.paramDump = null;
+    }
 }

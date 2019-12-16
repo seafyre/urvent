@@ -13,14 +13,26 @@ import org.json.simple.JSONObject;
  */
 public class Event extends Model
 {
-    public String desc;
-    public int location;
-    public User[] invitedUsers;
+    private String descr;
+    private int location;
+    private User[] invitedUsers;
     
     public Event(JSONObject json)
     {
-        this.desc = (String) json.get("desc");
+        this.id = Integer.valueOf((String)json.get("ID"));
+        this.name = (String) json.get("name");
+        this.descr = (String) json.get("descr");
         this.location = Integer.valueOf((String)json.get("location"));
+    }
+    
+    public String getDescr()
+    {
+        return this.descr;
+    }
+    
+    public int getLocation()
+    {
+        return this.location;
     }
     
 }

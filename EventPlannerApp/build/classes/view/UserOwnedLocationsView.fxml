@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.UserOwnedEventsViewModel">
+<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.UserOwnedLocationsViewModel">
     <stylesheets>
         <URL value="@/design/Style.css"/>
     </stylesheets>
@@ -18,7 +18,7 @@
         <children>
             <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
-                    <Label styleClass="h1">My Events</Label>
+                    <Label styleClass="h1">My Locations</Label>
                     <VBox>
                         <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
                     </VBox>
@@ -26,13 +26,13 @@
             </HBox>
             <VBox>
                 <children>
-                    <VBox fx:id="eventsBox">
+                    <VBox fx:id="locationsBox">
                         <children>
                             
                         </children>
                     </VBox>
-                    <Button fx:id="newEventBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
-                        Create Event
+                    <Button fx:id="newLocationBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
+                        Create Location
                     </Button>
                 </children>
             </VBox>

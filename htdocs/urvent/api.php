@@ -2,6 +2,7 @@
 require "DBConnector.php";
 
 //sampleRequest: localhost/urvent/api.php?payload={"cmd":"getUserByID","csv":"false","param":"1","user":"usermail@mail.de","token" : "3536322425ffwsg"}
+//{"cmd":"insertNewEvent","csv":"false","param":"","owner":"0","name":"nameHere","descr":"descrHere","location":"locationHere"}
 //var_dump($_GET);
 //var_dump($_REQUEST);
 
@@ -44,12 +45,42 @@ elseif ($commandName == "getEventByUser")
   $events = json_encode(getEventByUser($parameter));
   echo($events);
 }
-elseif ($commandName = "insertNewUser")
+elseif ($commandName == "getLocationByID")
+{
+  $location = json_encode(getLocationByID($parameter));
+  echo($location);
+}
+elseif ($commandName == "insertNewUser")
 {
   $name = $command["un"];
   $mail = $command["um"];
   $password = $command["pw"];
   $result = insertNewUser($name, $mail, $password);
+  echo($result);
+}
+elseif ($commandName == "getLocationByUser")
+{
+  $locations = json_encode(getLocationByUser($parameter));
+  echo($locations);
+}
+elseif ($commandName == "insertNewEvent")
+{
+  //owner,name,descr,location
+  $owner = intval($command["owner"]);
+  $name = $command["name"];
+  $descr = $command["descr"];
+  $location = intval($command["location"]);
+  $result = insertNewEvent($owner, $name, $descr, $location); //TODO
+  echo($result);
+}
+elseif ($commandName == "insertNewLocation")
+{
+  //$name, $descr, $coordinates, $owner
+  $name = $command["name"];
+  $descr = $command["descr"];
+  $coordinates = $command["coordinates"];
+  $owner = intval($command["owner"]);
+  $result = insertNewLocation($name, $descr, $coordinates, $owner); //TODO
   echo($result);
 }
 

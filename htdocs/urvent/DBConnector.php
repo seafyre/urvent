@@ -89,11 +89,26 @@ function getLocationByID($ID)
 	if($ID != NULL)
 	{
 		$connection = openConnection();
-		$result = $connection->query("SELECT * FROM location WHERE ID = ".$ID, MYSQLI_USE_RESULT); //TODO remove password
+		$result = $connection->query("SELECT * FROM location WHERE ID = ".$ID, MYSQLI_USE_RESULT);
 		$data = $result->fetch_array(MYSQLI_ASSOC);
 		return $data;
 	}
 
+}
+
+function getLocationByUser($userID)
+{
+	if($userID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM location WHERE owner = ".$userID, MYSQLI_USE_RESULT);
+		$results = array();
+		foreach ($result as $n)
+		{
+			array_push($results, json_encode($n));
+		}
+		return $results;
+	}
 }
 
 function getInvitationByID($ID)
@@ -110,9 +125,13 @@ function getInvitationByID($ID)
 
 function insertNewUser($name, $mail, $password)
 {
+		$reply = json_encode(getReplyArray(false, "insertNewUser", ""));
     $connection = openConnection();
-    $entry = $connection->query("INSERT into user (name,mail,password) VALUES (\"$name\",\"$mail\",\"$password\")");
-		$reply = json_encode(getReplyArray(true, "insertNewUser", ""));
+    $entry = $connection->query("INSERT INTO user (name,mail,password) VALUES (\"$name\",\"$mail\",\"$password\")");
+		if($entry == true)
+		{
+			$reply = json_encode(getReplyArray(true, "insertNewUser", ""));
+		}
 		return $reply;
 }
 
@@ -122,16 +141,28 @@ function setTicketByID($owner, $event, $name, $qrdata)
     $entry = $connection->query("INSERT INTO ticket VALUES (DEFAULT, '".$owner."', '".$event."', '".$name."', '".$qrdata."')"); //qrdata??
 }
 
-function setLocationByID($name, $descr, $coordinates, $owner)
+function insertNewLocation($name, $descr, $coordinates, $owner)
 {
+		$reply = json_encode(getReplyArray(false, "insertNewLocation", ""));
     $connection = openConnection();
-    $entry = $connection->query("INSERT INTO location VALUES (DEFAULT, '".$name."', '".$descr."', '".$coordinates."', '".$owner."')");
+    $entry = $connection->query("INSERT INTO location (name,descr,coordinates,owner) VALUES (\"$name\",\"$descr\",\"$coordinates\",$owner)");
+		if ($entry == true)
+		{
+			$reply = json_encode(getReplyArray(true, "insertNewLocation", ""));
+		}
+		return $reply;
 }
 
-function setEventByID($owner, $name, $descr, $location)
+function insertNewEvent($owner, $name, $descr, $location)
 {
+		$reply = json_encode(getReplyArray(false, "insertNewEvent", ""));
     $connection = openConnection();
-    $entry = $connection->query("INSERT INTO event VALUES (DEFAULT, '".$owner."', '".$name."', '".$descr."', '".$location."')");
+    $entry = $connection->query("INSERT INTO event (owner,name,descr,location) VALUES ($owner,\"$name\",\"$descr\",$location)");
+		if ($entry == true)
+		{
+			$reply = json_encode(getReplyArray(true, "insertNewEvent", ""));
+		}
+		return $reply;
 }
 
 function setInvitationByID($relatedTicket, $host, $guest)

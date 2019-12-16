@@ -24,6 +24,18 @@
                     </VBox>
                 </children>
             </HBox>
+            <VBox>
+                <children>
+                    <VBox fx:id="eventsBox">
+                        <children>
+                            
+                        </children>
+                    </VBox>
+                    <Button fx:id="newEventBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
+                        Create Event
+                    </Button>
+                </children>
+            </VBox>
         </children>
     </VBox>
     </content>

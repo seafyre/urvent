@@ -43,7 +43,7 @@ public class HomeViewModel extends ViewModel implements Initializable
     private Button calendarBtn;
     
     @FXML
-    private Button somethingBtn;
+    private Button myLocationsBtn;
     
     User user = null;
     
@@ -53,6 +53,7 @@ public class HomeViewModel extends ViewModel implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        EventPlannerApp.app.setActiveVM(this);
         loadData();
         setLabels();
         createHandlers();
@@ -79,5 +80,6 @@ public class HomeViewModel extends ViewModel implements Initializable
         myInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsView.fxml",this));
         myAcceptedInvitationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsConfirmedView.fxml",this));
         myAccountBtn.setOnAction(new SwitchViewModelHandler("/view/UserScreenView.fxml",this));
+        myLocationsBtn.setOnAction(new SwitchViewModelHandler("/view/UserOwnedLocationsView.fxml",this));
     }
 }

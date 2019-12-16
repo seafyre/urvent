@@ -46,10 +46,10 @@
                             My Account
                         </Button>
                         <Button fx:id="calendarBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
-                            Calendar
+                            My Calendar
                         </Button>
-                        <Button fx:id="somethingBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
-                            Something
+                        <Button fx:id="myLocationsBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
+                            My Locations
                         </Button>
                     </children>
                 </VBox>

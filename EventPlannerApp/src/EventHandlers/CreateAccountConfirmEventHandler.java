@@ -14,7 +14,7 @@ import viewmodel.ViewModel;
  *
  * @author User
  */
-public class CreateAccountConfirmEventHandler extends VMEventHandler implements EventHandler
+public class CreateAccountConfirmEventHandler extends VMEventHandler
 {
 
     public CreateAccountConfirmEventHandler(ViewModel parent) 

@@ -14,6 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.User;
+import viewmodel.EventInfoViewModel;
+import viewmodel.ViewModel;
 
 /**
  *
@@ -22,8 +24,11 @@ import model.User;
 public class EventPlannerApp extends Application 
 {
     public static EventPlannerApp app;
-    private static Stage MainStage;
+    public static Stage MainStage;
+    public static FXMLLoader loader;
     
+    public Object[] paramDump;
+    private ViewModel activeVM;
     private User activeUser;
     
     @Override
@@ -32,13 +37,15 @@ public class EventPlannerApp extends Application
         //Singleton Pattern, never instanciate another App or Mainstage
         app = this;
         MainStage = stage;
+        loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("/view/LoginView.fxml"));
         
-        Parent root = FXMLLoader.load(getClass().getResource("/view/SampleView.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/view/SampleView.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        switchViewModel("/view/LoginView.fxml");
+        //switchViewModel("/view/LoginView.fxml");
     }
 
     /**
@@ -54,11 +61,19 @@ public class EventPlannerApp extends Application
         app.setScene(viewPath);
     }
     
+    public static void switchViewModel(String viewPath, Object[] params)
+    {
+        app.paramDump = params;
+        app.setScene(viewPath);
+        int n = 1;
+        
+    }
+    
     private void setScene(String viewPath)
     {
         try 
         {
-            Parent sceneRoot = FXMLLoader.load(getClass().getResource(viewPath));
+            Parent sceneRoot = loader.load(getClass().getResource(viewPath));
             Scene scene = new Scene(sceneRoot);
             MainStage.setScene(scene);
         } 
@@ -76,5 +91,16 @@ public class EventPlannerApp extends Application
     public User getActiveUser()
     {
         return this.activeUser;
+    }
+    
+    public void setActiveVM(ViewModel viewModel)
+    {
+        this.activeVM = viewModel;
+        System.out.println(this.activeVM.toString());
+    }
+    
+    public ViewModel getActiveVM()
+    {
+        return this.activeVM;
     }
 }

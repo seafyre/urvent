@@ -51,6 +51,7 @@ public class CreateAccountViewModel extends ViewModel implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        EventPlannerApp.app.setActiveVM(this);
         createHandlers();
     }    
 

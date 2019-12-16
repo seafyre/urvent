@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import model.Event;
+import model.Location;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
@@ -25,65 +26,65 @@ import tools.HTTP;
  *
  * @author User
  */
-public class UserOwnedEventsViewModel extends ViewModel implements Initializable 
+public class UserOwnedLocationsViewModel extends ViewModel implements Initializable 
 {
     @FXML
+    private VBox locationsBox;
+    
+    @FXML
+    private Button newLocationBtn;
+    
+    @FXML
     private Button homeBtn;
-    
-    @FXML
-    private Button newEventBtn;
-    
-    @FXML
-    private VBox eventsBox;
-    
-    ArrayList<Event> events = new ArrayList<Event>();
     /**
      * Initializes the controller class.
      */
+    
+    private ArrayList<Location> locations = new ArrayList<Location>();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
         loadData();
         createHandlers();
+        injectLocationButtonsToUI();
     }    
 
     @Override
     protected void loadData() 
     {
-        EventPlannerApp.app.setActiveVM(this);
-        loadEvents();
-        injectEventButtonsToUI();
+        loadLocations();
     }
 
     @Override
     protected void createHandlers() 
     {
-        newEventBtn.setOnAction(new SwitchViewModelHandler("/view/CreateEventView.fxml", this));
-        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml", this));
+        newLocationBtn.setOnAction(new SwitchViewModelHandler("/view/CreateLocationView.fxml",this));
+        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this)); 
     }
     
-    private void loadEvents()
+    private void loadLocations()
     {
-        ArrayList<JSONObject> out = HTTP.getArray(APICommand.getEventByUser(EventPlannerApp.app.getActiveUser().getID()));
+        ArrayList<JSONObject> out = HTTP.getArray(APICommand.getLocationByUser(EventPlannerApp.app.getActiveUser().getID()));
         for(JSONObject n : out)
         {
-            events.add(new Event(n));
+            locations.add(new Location(n));
         }
     }
     
-    private void injectEventButtonsToUI()
+    private void injectLocationButtonsToUI()
     {
-        for(Event n : events)
+        for(Location n : locations)
         {
-            eventsBox.getChildren().add(getEventButton(n));
+            locationsBox.getChildren().add(getEventButton(n));
         }
     }
     
-    private Button getEventButton(Event eventModel)
+    private Button getEventButton(Location locationModel)
     {
-        String eventName = eventModel.getName();
-        Button btn = new Button(eventName);
-        btn.setOnAction(new ShowEventInfoHandler(this, eventModel)); //TODO
+        String locationName = locationModel.getName();
+        Button btn = new Button(locationName);
+        //btn.setOnAction(new ShowEventInfoHandler(this, locationModel)); //TODO
         btn.getStyleClass().add("basicButtonDark"); //TODO
         return btn;
     }

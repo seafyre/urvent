@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.CreateEventViewModel">
+<ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.CreateLocationViewModel">
     <stylesheets>
         <URL value="@/design/Style.css"/>
     </stylesheets>
@@ -18,7 +18,7 @@
         <children>
             <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
-                    <Label styleClass="h1">Create an Event</Label>
+                    <Label styleClass="h1">Create Location</Label>
                     <VBox>
                         <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
                     </VBox>
@@ -26,10 +26,9 @@
             </HBox>
             <VBox>
                 <children>
-                    <TextField fx:id="nameTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Eventname"></TextField>
+                    <TextField fx:id="nameTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Locationname"></TextField>
                     <TextField fx:id="descrTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Description"></TextField>
-                    <TextField fx:id="dateTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Date (DD/MM/YYYY)"></TextField>
-                    <TextField fx:id="locationTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Location"></TextField>
+                    <TextField fx:id="coordinatesTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Coordinates(Lat,Long)"></TextField>
                     <Button fx:id="submitBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">Submit</Button>
                     <Button fx:id="cancelBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">Cancel</Button>
                 </children>

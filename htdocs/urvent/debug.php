@@ -10,6 +10,6 @@ require "DBConnector.php";
 //setUserByID("steven", "haha@web.de", "123ll");
 //updateUserByID(8, "lol", "hahaa@web.de", "lala")
 //$arr = json_encode(tryLogin("teastmail@test.tst","efa"));
-$arr = insertNewUser("testUserN", "testMail@mail.me", "testPW");
+$arr = insertNewEvent(1, "TestEvt", "Lorem ipsum", 1);
 print_r($arr);
  ?>

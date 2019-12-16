@@ -5,29 +5,27 @@
  */
 package EventHandlers;
 
-import eventplannerappDELETETHISLATER.EventPlannerApp;
 import javafx.event.Event;
-import javafx.event.EventHandler;
+import viewmodel.CreateLocationViewModel;
 import viewmodel.ViewModel;
 
 /**
  *
- * @author Admin
+ * @author User
  */
-public class SwitchViewModelHandler extends VMEventHandler
+public class CreateLocationConfirmHandler extends VMEventHandler
 {
-    private String viewPath;
-    
-    public SwitchViewModelHandler(String viewPath, ViewModel parent)
+
+    public CreateLocationConfirmHandler(ViewModel parent) 
     {
         super(parent);
-        this.viewPath = viewPath;
     }
-    
+
     @Override
     public void handle(Event event) 
     {
-        EventPlannerApp.app.switchViewModel(viewPath);
+        CreateLocationViewModel p = (CreateLocationViewModel)parent;
+        p.createLocation();
     }
     
 }
