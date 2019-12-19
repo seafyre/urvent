@@ -6,15 +6,20 @@
 package viewmodel;
 
 import EventHandlers.CreateEventConfirmButtonEventHandler;
+import EventHandlers.SelectLocationComBoxHandler;
 import EventHandlers.SwitchViewModelHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import model.Location;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
@@ -46,6 +51,13 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
             
     @FXML
     private TextField locationTxtFld;
+    
+    @FXML
+    private ComboBox locationSelectionComBox;
+    
+    public ArrayList<Location> locations = new ArrayList<Location>();
+    public Location selectedLocation = null;
+    
     /**
      * Initializes the controller class.
      */
@@ -53,13 +65,15 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         EventPlannerApp.app.setActiveVM(this);
+        loadData();
         createHandlers();
+        setupUI();
     }    
 
     @Override
     protected void loadData() 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        loadMyLocations();
     }
 
     @Override
@@ -67,12 +81,31 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
     {
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
         submitBtn.setOnAction(new CreateEventConfirmButtonEventHandler(this));
-        cancelBtn.setOnAction(new SwitchViewModelHandler("/view/UserOwnedEventsView.fxml",this));   
+        cancelBtn.setOnAction(new SwitchViewModelHandler("/view/UserOwnedEventsView.fxml",this));
+        locationSelectionComBox.setOnAction(new SelectLocationComBoxHandler(this, locationSelectionComBox));
+    }
+    
+    private void setupUI()
+    {
+        for(Location n : locations)
+        {
+            locationSelectionComBox.getItems().add(n.getName());
+        }
+    }
+    
+    private void loadMyLocations()
+    {
+        ArrayList<JSONObject> locationJsons = HTTP.getArray(APICommand.getLocationByUser(EventPlannerApp.app.getActiveUser().getID()));
+        for(JSONObject n : locationJsons)
+        {
+            Location l = new Location(n);
+            locations.add(l);
+        }
     }
     
     public void createNewEvent()
     {
-       JSONObject reply = HTTP.get(APICommand.insertNewEvent(EventPlannerApp.app.getActiveUser().getID() ,nameTxtFld.getText(), descrTxtFld.getText(), Integer.valueOf(locationTxtFld.getText()))); //TODO choose location
+       JSONObject reply = HTTP.get(APICommand.insertNewEvent(EventPlannerApp.app.getActiveUser().getID() ,nameTxtFld.getText(), descrTxtFld.getText(), this.selectedLocation.getID())); //TODO choose location
        Boolean success = (Boolean) reply.get("succ");
        if(success == true)
        {

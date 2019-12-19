@@ -5,6 +5,7 @@
  */
 package viewmodel;
 
+import EventHandlers.CreateInvitationSwitchVMHandler;
 import EventHandlers.SwitchViewModelHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
@@ -43,6 +44,9 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     @FXML
     private Button editEventBtn;
     
+    @FXML
+    private Button inviteBtn;
+    
     private Event event;
     private Location location;
     
@@ -70,6 +74,7 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     protected void createHandlers() 
     {
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
+        inviteBtn.setOnAction(new CreateInvitationSwitchVMHandler(this, event));
     }
     
     private void setLabelText()

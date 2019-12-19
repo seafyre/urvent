@@ -139,7 +139,7 @@ public class HTTP
         return json;
     }
     
-        public static ArrayList<JSONObject> getArray(String payload)
+    public static ArrayList<JSONObject> getArray(String payload)
     {
         HttpURLConnection con = null;
         int contentLength = payload.getBytes().length;

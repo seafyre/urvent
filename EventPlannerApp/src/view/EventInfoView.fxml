@@ -33,6 +33,7 @@
                 <Label styleClass="h3" fx:id="evtDateLbl">00.00.0000</Label>
                 <Label styleClass="h3" fx:id="evtLocationLbl">Location Name</Label>
                 <Button styleClass="basicButtonDark" fx:id="editEventBtn">Edit Event</Button>
+                <Button styleClass="basicButtonDark" fx:id="inviteBtn">Invite People</Button>
             </children>
         </VBox>
         </children>

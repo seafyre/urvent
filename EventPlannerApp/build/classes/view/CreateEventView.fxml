@@ -30,6 +30,7 @@
                     <TextField fx:id="descrTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Description"></TextField>
                     <TextField fx:id="dateTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Date (DD/MM/YYYY)"></TextField>
                     <TextField fx:id="locationTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Location"></TextField>
+                    <ComboBox fx:id="locationSelectionComBox"></ComboBox>
                     <Button fx:id="submitBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">Submit</Button>
                     <Button fx:id="cancelBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">Cancel</Button>
                 </children>

@@ -23,6 +23,7 @@ public class Location extends Model
         this.name = (String)json.get("name");
         this.desc = (String) json.get("descr");
         this.owner = Integer.valueOf((String)json.get("owner"));
+        this.coordinates = (String) json.get("coordinates");
     }
     
     public String getDescr()

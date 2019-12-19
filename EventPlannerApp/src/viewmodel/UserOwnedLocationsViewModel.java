@@ -6,6 +6,7 @@
 package viewmodel;
 
 import EventHandlers.ShowEventInfoHandler;
+import EventHandlers.ShowLocationInfoHandler;
 import EventHandlers.SwitchViewModelHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
@@ -76,15 +77,15 @@ public class UserOwnedLocationsViewModel extends ViewModel implements Initializa
     {
         for(Location n : locations)
         {
-            locationsBox.getChildren().add(getEventButton(n));
+            locationsBox.getChildren().add(getLocationButton(n));
         }
     }
     
-    private Button getEventButton(Location locationModel)
+    private Button getLocationButton(Location locationModel)
     {
         String locationName = locationModel.getName();
         Button btn = new Button(locationName);
-        //btn.setOnAction(new ShowEventInfoHandler(this, locationModel)); //TODO
+        btn.setOnAction(new ShowLocationInfoHandler(this, locationModel)); //TODO
         btn.getStyleClass().add("basicButtonDark"); //TODO
         return btn;
     }
