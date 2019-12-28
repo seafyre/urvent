@@ -27,7 +27,7 @@ public class CreateInvitationSwitchVMHandler extends VMEventHandler
     public void handle(javafx.event.Event event) 
     {
         Event[] params = {relatedEvent};
-        EventPlannerApp.switchViewModel("/view/CreateInvitationViewModel.fxml", params);
+        EventPlannerApp.switchViewModel("/view/CreateInvitationView.fxml", params);
     }
     
 }

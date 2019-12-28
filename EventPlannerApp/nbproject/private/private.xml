@@ -37,6 +37,7 @@
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/SampleViewModel.java</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/CreateEventView.fxml</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/UserOwnedLocationsViewModel.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/EventHandlers/SelectLocationComBoxHandler.java</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/UserInvitationsView.fxml</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/EventHandlers/VMEventHandler.java</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/UserInvitationsConfirmedViewModel.java</file>
@@ -46,6 +47,7 @@
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/APICommand.java</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/HomeView.fxml</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/EventHandlers/CreateEventConfirmButtonEventHandler.java</file>
+            <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/model/User.java</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/viewmodel/CreateAccountViewModel.java</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/view/LoginView.fxml</file>
             <file>file:/C:/Users/User/workspace/urvent/EventPlannerApp/src/tools/JSON.java</file>

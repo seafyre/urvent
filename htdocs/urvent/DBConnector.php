@@ -120,7 +120,18 @@ function getInvitationByID($ID)
 		$data = $result->fetch_array(MYSQLI_ASSOC);
 		return $data;
 	}
+}
 
+function insertNewInvitation($relatedEvent, $relatedTicket, $host, $guest)
+{
+	$reply = json_encode(getReplyArray(false, "insertNewInvitation", ""));
+	$connection = openConnection();
+	$entry = $connection->query("INSERT INTO invitation (relatedEvent,relatedTicket,host,guest) VALUES ($relatedEvent,$relatedTicket,$host,$guest)");
+	if($entry == true)
+	{
+		$reply = json_encode(getReplyArray(true, "insertNewInvitation", ""));
+	}
+	return $reply;
 }
 
 function insertNewUser($name, $mail, $password)

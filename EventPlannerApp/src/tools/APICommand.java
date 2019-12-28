@@ -5,6 +5,8 @@
  */
 package tools;
 
+import eventplannerappDELETETHISLATER.EventPlannerApp;
+
 /**
  *
  * @author User
@@ -15,13 +17,13 @@ public class APICommand
     
     public static String getUserByID(int ID, String mail, String token)
     {
-        String command = commandPrefix + "{\"cmd\":\"getUserByID\",\"csv\":\"false\",\"param\":\"" + ID +"\",\"user\":\"" + mail + "\",\"token\":\"" + token + "\"}";
+        String command = commandPrefix + "{\"cmd\":\"getUserByID\",\"csv\":\"false\",\"p    aram\":\"" + ID +"\",\"user\":\"" + mail + "\",\"token\":\"" + token + "\"}";
         return command;
     }
     
     public static String getUserByMail(String mail, String token)
     {
-        String command = commandPrefix + "{\"cmd\":\"getUserByMail\",\"csv\":\"false\",\"param\":\"" + mail +"\",\"user\":\"" + mail + "\",\"token\":\"" + token + "\"}";
+        String command = commandPrefix + "{\"cmd\":\"getUserByMail\",\"csv\":\"false\",\"param\":\"" + mail +"\",\"user\":\"" + EventPlannerApp.app.getActiveUser().getMail() + "\",\"token\":\"" + token + "\"}";
         return command;
     }
     
@@ -59,6 +61,12 @@ public class APICommand
     public static String insertNewEvent(int owner, String name, String descr, int location)
     {
         String command = commandPrefix + "{\"cmd\":\"insertNewEvent\",\"csv\":\"false\",\"param\":\"\",\"owner\":\"" + owner + "\",\"name\":\"" + name + "\",\"descr\":\"" + descr + "\",\"location\":\"" + location + "\"}";
+        return command;
+    }
+    
+    public static String insertNewInvitation(int relatedEvent, int relatedTicket, int host, int guest)
+    {
+        String command = commandPrefix + "{\"cmd\":\"insertNewInvitation\",\"csv\":\"false\",\"param\":\"\",\"relatedEvent\":\"" + relatedEvent + "\",\"relatedTicket\":\"" + relatedTicket + "\",\"host\":\"" + host + "\",\"guest\":\"" + guest + "\"}";
         return command;
     }
     

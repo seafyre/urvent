@@ -28,7 +28,7 @@ elseif($commandName == "getUserByMail")
     echo($user);
   }
 }
-elseif ($commandName == "login")
+elseif ($commandName == "login") //this one needs no validation
 {
   $usermail = $command["um"];
   $password = $command["pw"];
@@ -82,6 +82,16 @@ elseif ($commandName == "insertNewLocation")
   $owner = intval($command["owner"]);
   $result = insertNewLocation($name, $descr, $coordinates, $owner); //TODO
   echo($result);
+}
+elseif ($commandName == "insertNewInvitation")
+{
+  //$relatedEvent, $relatedTicket, $host, $guest
+  $relatedEvent = $command["relatedEvent"];
+  $relatedTicket = $command["relatedTicket"];
+  $host = $command["host"];
+  $guest = $command["guest"];
+  $result = insertNewInvitation($relatedEvent, $relatedTicket, $host, $guest);
+  echo ($result);
 }
 
 function validRequest($req)
