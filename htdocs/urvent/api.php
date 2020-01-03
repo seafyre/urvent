@@ -10,6 +10,7 @@ $command = json_decode($_REQUEST["payload"], $assoc=true);
 $commandName = $command["cmd"];
 $csv = $command["csv"];
 $parameter = $command["param"];
+//var_dump($command);
 
 if($commandName == "getUserByID")
 {
@@ -22,11 +23,11 @@ if($commandName == "getUserByID")
 }
 elseif($commandName == "getUserByMail")
 {
-  if (validRequest($command) == true)
-  {
+  //if (validRequest($command) == true)
+  //{
     $user = json_encode(getUserByMail($parameter));
     echo($user);
-  }
+  //}
 }
 elseif ($commandName == "login") //this one needs no validation
 {

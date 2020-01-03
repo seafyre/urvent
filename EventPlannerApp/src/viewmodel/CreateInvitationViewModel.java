@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Event;
 import model.User;
+import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
 
@@ -62,6 +63,12 @@ public class CreateInvitationViewModel extends ViewModel implements Initializabl
     public void createInvitation()
     {
         User guest = new User(HTTP.get(APICommand.getUserByMail(this.mailTxtFld.getText(), EventPlannerApp.app.getActiveUser().getloginToken())));
+        JSONObject reply = HTTP.get(APICommand.insertNewInvitation(event.getID(), 1, EventPlannerApp.app.getActiveUser().getID(), guest.getID()));
+        if((Boolean)reply.get("succ") == true)
+        {
+            Event[] params = {event};
+            EventPlannerApp.switchViewModel("/view/EventInfoView.fxml", params);
+        }
     }
     
 }

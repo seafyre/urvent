@@ -7,21 +7,17 @@ package EventHandlers;
 
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import model.Event;
-import org.json.simple.JSONObject;
-import tools.APICommand;
-import tools.HTTP;
-import viewmodel.EventInfoViewModel;
 import viewmodel.ViewModel;
 
 /**
  *
- * @author User
+ * @author Admin
  */
-public class ShowEventInfoHandler extends VMEventHandler
+public class ShowUserInviteHandler extends VMEventHandler
 {
     Event relatedEvent;
     
-    public ShowEventInfoHandler(ViewModel parent, Event e) 
+    public ShowUserInviteHandler(ViewModel parent, Event e) 
     {
         super(parent);
         relatedEvent = e;
@@ -31,7 +27,7 @@ public class ShowEventInfoHandler extends VMEventHandler
     public void handle(javafx.event.Event event) 
     {
         Event[] params = {relatedEvent};
-        EventPlannerApp.switchViewModel("/view/EventInfoView.fxml", params);
+        EventPlannerApp.switchViewModel("/view/CreateInvitationView.fxml", params);
     }
     
 }

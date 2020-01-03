@@ -57,8 +57,8 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         EventPlannerApp.app.setActiveVM(this);
-        createHandlers();
         loadData();
+        createHandlers();
         setLabelText();
     }    
 
