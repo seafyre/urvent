@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import model.Invitation;
 import org.json.simple.JSONObject;
 import tools.APICommand;
@@ -28,6 +29,9 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
     @FXML
     private Button homeBtn;
     
+    @FXML
+    private VBox invitationsListBox;
+    
     ArrayList<Invitation> invitations = new ArrayList<Invitation>();
     
     /**
@@ -37,6 +41,7 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         EventPlannerApp.app.setActiveVM(this);
+        loadData();
         createHandlers();
     }    
 
@@ -48,6 +53,7 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
         {
             Invitation inv = new Invitation(n);
             invitations.add(inv);
+            int i = 1;
         }
     }
 
@@ -55,6 +61,11 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
     protected void createHandlers() 
     {
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
+    }
+    
+    private void injectInvitationToUI()
+    {
+        
     }
     
 }

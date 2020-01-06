@@ -15,10 +15,10 @@ public class Invitation extends Model
 {
     public Invitation(JSONObject json)
     {
-        this.relatedEvent = (int)json.get("relatedEvent");
-        this.relatedTicket = (int)json.get("relatedTicket");
-        this.host = (int)json.get("host");
-        this.guest = (int)json.get("guest");
+        this.relatedEvent = Integer.valueOf((String)json.get("relatedEvent"));
+        this.relatedTicket = Integer.valueOf((String)json.get("relatedTicket"));
+        this.host = Integer.valueOf((String)json.get("host"));
+        this.guest = Integer.valueOf((String)json.get("guest"));
     }
     
     public int relatedEvent;
