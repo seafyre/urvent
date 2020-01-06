@@ -16,12 +16,17 @@
     <content>
     <VBox>
         <children>
-            <VBox styleClass="topBar"  >
+            <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
                     <Label styleClass="h1">My Invitations</Label>
                     <VBox>
                         <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
                     </VBox>
+                </children>
+            </HBox>
+            <VBox fx:id="invitationsListBox" styleClass="vBoxList">
+                <children>
+                    
                 </children>
             </VBox>
         </children>

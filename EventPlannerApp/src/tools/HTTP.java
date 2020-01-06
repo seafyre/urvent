@@ -134,7 +134,17 @@ public class HTTP
             }
         }
         System.out.println(response);
-        JSONObject json = JSON.readJSON(response);
+        JSONObject json = null;
+        try
+        {
+            json = JSON.readJSON(response);    
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        
         
         return json;
     }
