@@ -24,7 +24,7 @@
             <VBox>
                 <Label styleClass="h1">Please enter your credentials</Label>
                 <TextField maxWidth="512" styleClass="basicTextField" promptText="Mail" fx:id="mailTxtFld"></TextField>
-                <TextField maxWidth="512" styleClass="basicTextField" promptText="Password" fx:id="passwordTxtFld"></TextField>
+                <PasswordField maxWidth="512" styleClass="basicTextField" promptText="Password" fx:id="passwordTxtFld"></PasswordField>
                 <Button 
                     styleClass="basicButtonDark" fx:id="loginBtn" prefWidth="256">Login
                 </Button> 
