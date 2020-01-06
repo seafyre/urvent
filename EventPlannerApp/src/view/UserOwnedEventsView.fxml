@@ -16,26 +16,29 @@
     <content>
     <VBox>
         <children>
-            <HBox styleClass="topBar" style="-fx-spacing:800;" >
+            <VBox styleClass="topBar"  >
                 <children>
                     <Label styleClass="h1">My Events</Label>
                     <VBox>
                         <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
                     </VBox>
                 </children>
-            </HBox>
-            <VBox>
+            </VBox>
+            <GridPane alignment="CENTER_LEFT">
+                <VBox>
                 <children>
-                    <VBox fx:id="eventsBox">
+                    <VBox fx:id="eventsBox" styleClass="hBoxList">
                         <children>
-                            
+                             <Button fx:id="newEventBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
+                                Create Event
+                             </Button>
                         </children>
                     </VBox>
-                    <Button fx:id="newEventBtn" styleClass="basicButtonDark" GridPane.columnIndex="0" prefWidth="256">
-                        Create Event
-                    </Button>
+                   
                 </children>
             </VBox>
+            </GridPane>
+            
         </children>
     </VBox>
     </content>

@@ -85,6 +85,7 @@ public class UserOwnedEventsViewModel extends ViewModel implements Initializable
         Button btn = new Button(eventName);
         btn.setOnAction(new ShowEventInfoHandler(this, eventModel)); //TODO
         btn.getStyleClass().add("basicButtonDark"); //TODO
+        btn.setPrefWidth(256);
         return btn;
     }
     
