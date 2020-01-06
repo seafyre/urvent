@@ -122,6 +122,22 @@ function getInvitationByID($ID)
 	}
 }
 
+function getInvitationsByUserID($ID)
+{
+	if($ID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM invitation WHERE guest = ".$ID, MYSQLI_USE_RESULT);
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+		$results = array();
+		foreach ($result as $n)
+		{
+			array_push($results, json_encode($n));
+		}
+		return $results;
+	}
+}
+
 function insertNewInvitation($relatedEvent, $relatedTicket, $host, $guest)
 {
 	$reply = json_encode(getReplyArray(false, "insertNewInvitation", ""));

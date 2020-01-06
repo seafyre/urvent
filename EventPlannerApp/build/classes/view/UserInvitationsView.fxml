@@ -24,6 +24,11 @@
                     </VBox>
                 </children>
             </HBox>
+            <VBox fx:id="invitationsListBox" styleClass="vBoxList">
+                <children>
+                    
+                </children>
+            </VBox>
         </children>
     </VBox>
     </content>

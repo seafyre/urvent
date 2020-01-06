@@ -70,6 +70,12 @@ public class APICommand
         return command;
     }
     
+    public static String getInvitationByUserID(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getInvitationsByUserID\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
+    }
+    
     //$name, $descr, $coordinates, $owner
     public static String insertNewLocation(String name, String descr, String coordinates, int owner)
     {
@@ -82,6 +88,5 @@ public class APICommand
         String command = commandPrefix + "{\"cmd\":\"getLocationByUser\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
         return command;        
     }
-    
     
 }
