@@ -19,7 +19,7 @@ and open the template in the editor.
 
 .topBar
 {
-    -fx-background-color: #c6ff00;
+    -fx-background-color: #00FF00;
     -fx-min-width: 1280;
     -fx-min-height: 56;
     -fx-padding: 8;
@@ -96,7 +96,7 @@ and open the template in the editor.
 .basicTextField
 {
     -fx-border-style: none;
-    -fx-border-color: none;
+    -fx-border-color: #a6acaf;
     -fx-border-radius: 0;
     -fx-background-insets: 0,0,0;
     -fx-background-radius: 0,0,0;
