@@ -16,21 +16,18 @@
     <content>
     <VBox>
         <children>
-            <VBox styleClass="topBar"  >
+            <HBox styleClass="topBar" style="-fx-spacing:800;" >
                 <children>
                     <Label styleClass="h1">My Invitations</Label>
                     <VBox>
                         <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
                     </VBox>
                 </children>
-<<<<<<< HEAD
             </HBox>
             <VBox fx:id="invitationsListBox" styleClass="vBoxList">
                 <children>
                     
                 </children>
-=======
->>>>>>> b099e6d513b34d6455cbeb49fcbe59751eab06a6
             </VBox>
         </children>
     </VBox>
