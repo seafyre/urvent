@@ -48,13 +48,21 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
     @Override
     protected void loadData() 
     {
-        ArrayList<JSONObject> obj = HTTP.getArray(APICommand.getInvitationByUserID(EventPlannerApp.app.getActiveUser().getID()));
-        for(JSONObject n : obj)
+        try
         {
-            Invitation inv = new Invitation(n);
-            invitations.add(inv);
-            int i = 1;
+            ArrayList<JSONObject> obj = HTTP.getArray(APICommand.getInvitationByUserID(EventPlannerApp.app.getActiveUser().getID()));
+            for(JSONObject n : obj)
+            {
+                Invitation inv = new Invitation(n);
+                invitations.add(inv);
+                int i = 1;
+            }    
         }
+        catch(Exception e)
+        {
+            
+        }
+        
     }
 
     @Override
