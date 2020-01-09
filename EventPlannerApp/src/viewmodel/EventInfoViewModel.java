@@ -60,6 +60,7 @@ public class EventInfoViewModel extends ViewModel implements Initializable
         loadData();
         createHandlers();
         setLabelText();
+        setEditPrivileges();
     }    
 
     @Override
@@ -75,6 +76,15 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     {
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
         inviteBtn.setOnAction(new CreateInvitationSwitchVMHandler(this, event));
+    }
+    
+    private void setEditPrivileges()
+    {
+        if(event.getOwner() != EventPlannerApp.app.getActiveUser().getID())
+        {
+            inviteBtn.setDisable(true);
+            editEventBtn.setDisable(true);
+        }
     }
     
     private void setLabelText()

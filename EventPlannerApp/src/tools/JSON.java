@@ -22,6 +22,7 @@ public class JSON
     
     public static JSONObject readJSON(String jsonString)
     {
+        System.out.println("parsing: " + jsonString);
         JSONObject json = null;
         try 
         {

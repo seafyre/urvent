@@ -5,6 +5,8 @@
  */
 package viewmodel;
 
+import EventHandlers.AcceptInvitationEventHandler;
+import EventHandlers.ShowEventInfoHandler;
 import EventHandlers.SwitchViewModelHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
@@ -13,7 +15,9 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.Event;
 import model.Invitation;
 import org.json.simple.JSONObject;
 import tools.APICommand;
@@ -43,6 +47,8 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
         EventPlannerApp.app.setActiveVM(this);
         loadData();
         createHandlers();
+        createEventButtons();
+        int n = 1;
     }    
 
     @Override
@@ -56,11 +62,11 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
                 Invitation inv = new Invitation(n);
                 invitations.add(inv);
                 int i = 1;
-            }    
+            }   
         }
         catch(Exception e)
         {
-            
+            e.printStackTrace();
         }
         
     }
@@ -71,9 +77,39 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
     }
     
-    private void injectInvitationToUI()
+    private void createEventButtons()
     {
-        
+        for(Invitation n : invitations)
+        {
+            if(n.getAccepted() == 0)
+            {
+                HBox btn = getInvitationBox(n);
+                invitationsListBox.getChildren().add(btn);   
+            }
+        }
+    }
+    
+    private Button getInvitationButton(Invitation invitationModel)
+    {
+        String inviteName = invitationModel.getName();
+        Button btn = new Button(inviteName);
+        btn.setOnAction(new ShowEventInfoHandler(this, new Event(HTTP.get(APICommand.getEventByID(invitationModel.getRelatedEvent()))))); //TODO
+        btn.getStyleClass().add("basicButtonDark"); //TODO
+        btn.setPrefWidth(256);
+        return btn;
+    }
+    
+    private HBox getInvitationBox(Invitation invitationModel)
+    {
+        HBox hBox = new HBox();
+        Button btn = getInvitationButton(invitationModel);
+        Button btnAccept = new Button("Accept");
+        btnAccept.setOnAction(new AcceptInvitationEventHandler(this, invitationModel));
+        Button btnDecline = new Button("Decline");
+        hBox.getChildren().add(btn);
+        hBox.getChildren().add(btnAccept);
+        hBox.getChildren().add(btnDecline);
+        return hBox;
     }
     
 }

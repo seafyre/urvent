@@ -127,7 +127,7 @@ function getInvitationsByUserID($ID)
 	if($ID != NULL)
 	{
 		$connection = openConnection();
-		$result = $connection->query("SELECT * FROM invitation WHERE guest = ".$ID, MYSQLI_USE_RESULT);
+		$result = $connection->query("SELECT invitation.ID, invitation.relatedEvent, invitation.relatedTicket, invitation.host, invitation.guest, invitation.accepted, event.name FROM invitation INNER JOIN event ON invitation.relatedEvent = event.ID WHERE guest = ".$ID);
 		//$data = $result->fetch_array(MYSQLI_ASSOC);
 		$results = array();
 		foreach ($result as $n)
@@ -138,15 +138,35 @@ function getInvitationsByUserID($ID)
 	}
 }
 
-function insertNewInvitation($relatedEvent, $relatedTicket, $host, $guest)
+function insertNewInvitation($relatedEvent, $host, $guest)
 {
 	$reply = json_encode(getReplyArray(false, "insertNewInvitation", ""));
 	$connection = openConnection();
-	$entry = $connection->query("INSERT INTO invitation (relatedEvent,relatedTicket,host,guest) VALUES ($relatedEvent,$relatedTicket,$host,$guest)");
+	$entry = $connection->query("INSERT INTO invitation (relatedEvent,host,guest) VALUES ($relatedEvent,$host,$guest)");
 	if($entry == true)
 	{
 		$reply = json_encode(getReplyArray(true, "insertNewInvitation", ""));
 	}
+	return $reply;
+}
+
+function acceptInvitation($invitationID)
+{
+	$reply = getReplyArray(false, "acceptInvitation", "");
+	try
+	{
+		$connection = openConnection();
+		$entry = $connection->query("UPDATE invitation SET accepted = 1 WHERE ID=".$invitationID, MYSQLI_USE_RESULT);
+		if($entry == true)
+		{
+			$reply = getReplyArray(true, "acceptInvitation", "lol");
+		}
+	}
+	catch (Exception $e)
+	{
+
+	}
+
 	return $reply;
 }
 

@@ -15,6 +15,7 @@ public class Event extends Model
 {
     private String descr;
     private int location;
+    private int owner;
     private User[] invitedUsers;
     
     public Event(JSONObject json)
@@ -22,6 +23,7 @@ public class Event extends Model
         this.id = Integer.valueOf((String)json.get("ID"));
         this.name = (String) json.get("name");
         this.descr = (String) json.get("descr");
+        this.owner = Integer.valueOf((String)json.get("owner"));
         this.location = Integer.valueOf((String)json.get("location"));
     }
     
@@ -34,5 +36,11 @@ public class Event extends Model
     {
         return this.location;
     }
+    
+    public int getOwner()
+    {
+        return this.owner;
+    }
+    
     
 }

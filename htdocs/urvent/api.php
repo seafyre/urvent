@@ -88,16 +88,21 @@ elseif ($commandName == "insertNewInvitation")
 {
   //$relatedEvent, $relatedTicket, $host, $guest
   $relatedEvent = $command["relatedEvent"];
-  $relatedTicket = $command["relatedTicket"];
   $host = $command["host"];
   $guest = $command["guest"];
-  $result = insertNewInvitation($relatedEvent, $relatedTicket, $host, $guest);
+  $result = insertNewInvitation($relatedEvent, $host, $guest);
   echo ($result);
 }
 elseif ($commandName == "getInvitationsByUserID")
 {
   $invitations = json_encode(getInvitationsByUserID($parameter));
   echo($invitations);
+}
+elseif ($commandName == "acceptInvitation")
+{
+  $invitationID = $parameter;
+  $result = json_encode(acceptInvitation($invitationID));
+  echo($result);
 }
 
 function validRequest($req)

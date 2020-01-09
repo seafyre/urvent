@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Jan 2020 um 12:02
+-- Erstellungszeit: 09. Jan 2020 um 18:34
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -51,11 +51,7 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`) VALUES
-(1, 1, 'testEvent', 'TestDescription', 1),
-(2, 1, 'testEvent2', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquy', 1),
-(3, 1, 'testEvent3', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 1),
-(4, 1, 'testEvent4', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 1),
-(5, 2, 'xxE', 'xxEsd', 2);
+(7, 4, 'te', 'teDes', 4);
 
 -- --------------------------------------------------------
 
@@ -66,19 +62,18 @@ INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`) VALUES
 CREATE TABLE `invitation` (
   `ID` int(10) UNSIGNED NOT NULL,
   `relatedEvent` int(10) NOT NULL,
-  `relatedTicket` int(10) UNSIGNED NOT NULL,
+  `relatedTicket` int(10) UNSIGNED DEFAULT NULL,
   `host` int(10) UNSIGNED NOT NULL,
-  `guest` int(10) UNSIGNED NOT NULL
+  `guest` int(10) UNSIGNED NOT NULL,
+  `accepted` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `invitation`
 --
 
-INSERT INTO `invitation` (`ID`, `relatedEvent`, `relatedTicket`, `host`, `guest`) VALUES
-(3, 5, 1, 2, 3),
-(4, 5, 1, 2, 3),
-(5, 5, 1, 2, 3);
+INSERT INTO `invitation` (`ID`, `relatedEvent`, `relatedTicket`, `host`, `guest`, `accepted`) VALUES
+(13, 7, NULL, 4, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -99,8 +94,7 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`ID`, `name`, `descr`, `coordinates`, `owner`) VALUES
-(1, 'testLocation', 'TestLocationDescription', '0000,0000', 1),
-(2, 'xxL', 'xxL', '0,0', 2);
+(4, 'tl', 'tl', '0,0', 4);
 
 -- --------------------------------------------------------
 
@@ -115,13 +109,6 @@ CREATE TABLE `ticket` (
   `name` varchar(64) NOT NULL,
   `qrdata` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Daten für Tabelle `ticket`
---
-
-INSERT INTO `ticket` (`ID`, `owner`, `event`, `name`, `qrdata`) VALUES
-(1, 2, 5, 'tixc', 'nope');
 
 -- --------------------------------------------------------
 
@@ -143,9 +130,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `name`, `descr`, `mail`, `password`, `loginToken`) VALUES
-(1, 'test user', 'This is the use description Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'teastmail@test.tst', 'pw1', '6b39be5211c292370db81c9306fc1278310a341b8fcbc2996bd71c78b07395c3'),
-(2, 'x', NULL, 'xx', 'xxx', '682a05a32ea24b18beed0f3be7be892b96c843dc4e92e12df16ecb8da411293e'),
-(3, 'bb', NULL, 'bb', 'bbb', '');
+(4, 'ta', NULL, 'ta', 'ta', 'd4ebfb3c5313c8fa330d114e563519aa2c83b17a10d6ccec3eba652b4c58145e'),
+(5, 'tb', NULL, 'tb', 'tb', '0348c8effd0882e2929e788198ca31ff204be287dd419f81d30159ad928ebbc0');
 
 --
 -- Indizes der exportierten Tabellen
@@ -170,7 +156,6 @@ ALTER TABLE `event`
 --
 ALTER TABLE `invitation`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `relatedTicket` (`relatedTicket`),
   ADD KEY `host` (`host`,`guest`),
   ADD KEY `invitation_guest` (`guest`);
 
@@ -209,19 +194,19 @@ ALTER TABLE `closedevent`
 -- AUTO_INCREMENT für Tabelle `event`
 --
 ALTER TABLE `event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT für Tabelle `invitation`
 --
 ALTER TABLE `invitation`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`
 --
 ALTER TABLE `location`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT für Tabelle `ticket`
@@ -233,7 +218,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints der exportierten Tabellen
@@ -251,8 +236,7 @@ ALTER TABLE `event`
 --
 ALTER TABLE `invitation`
   ADD CONSTRAINT `invitation_guest` FOREIGN KEY (`guest`) REFERENCES `user` (`ID`),
-  ADD CONSTRAINT `invitation_host` FOREIGN KEY (`host`) REFERENCES `user` (`ID`),
-  ADD CONSTRAINT `invitation_ticket` FOREIGN KEY (`relatedTicket`) REFERENCES `ticket` (`ID`);
+  ADD CONSTRAINT `invitation_host` FOREIGN KEY (`host`) REFERENCES `user` (`ID`);
 
 --
 -- Constraints der Tabelle `location`

@@ -6,6 +6,8 @@
 package model;
 
 import org.json.simple.JSONObject;
+import tools.APICommand;
+import tools.HTTP;
 
 /**
  *
@@ -15,16 +17,23 @@ public class Invitation extends Model
 {
     public Invitation(JSONObject json)
     {
+        this.id = Integer.valueOf((String)json.get("ID"));
+        this.name = (String) json.get("name");
         this.relatedEvent = Integer.valueOf((String)json.get("relatedEvent"));
-        this.relatedTicket = Integer.valueOf((String)json.get("relatedTicket"));
+        if(json.get("relatedTicket") != null)
+        {
+            this.relatedTicket = Integer.valueOf((String)json.get("relatedTicket"));   
+        }
         this.host = Integer.valueOf((String)json.get("host"));
         this.guest = Integer.valueOf((String)json.get("guest"));
+        this.accepted = Integer.valueOf((String)json.get("accepted"));
     }
     
     public int relatedEvent;
     public int relatedTicket;
     public int host;
     public int guest;
+    public int accepted;
     
     public int getRelatedEvent() 
     {
@@ -44,5 +53,17 @@ public class Invitation extends Model
     public int getGuest() 
     {
         return guest;
+    }
+    
+    public int getAccepted() 
+    {
+        return accepted;
+    }
+    
+    public boolean accept()
+    {
+        JSONObject reply = HTTP.get(APICommand.acceptInvitation(id));
+        Boolean success = (Boolean)reply.get("succ");
+        return success;
     }
 }

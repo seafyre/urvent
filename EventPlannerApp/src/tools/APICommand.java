@@ -89,4 +89,10 @@ public class APICommand
         return command;        
     }
     
+    public static String acceptInvitation(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"acceptInvitation\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
+    }
+    
 }
