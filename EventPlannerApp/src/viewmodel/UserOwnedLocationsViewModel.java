@@ -85,8 +85,9 @@ public class UserOwnedLocationsViewModel extends ViewModel implements Initializa
     {
         String locationName = locationModel.getName();
         Button btn = new Button(locationName);
-        btn.setOnAction(new ShowLocationInfoHandler(this, locationModel)); //TODO
-        btn.getStyleClass().add("basicButtonDark"); //TODO
+        btn.setOnAction(new ShowLocationInfoHandler(this, locationModel));
+        btn.getStyleClass().add("basicButtonDark");
+        btn.setPrefWidth(256);
         return btn;
     }
     

@@ -94,6 +94,11 @@ elseif ($commandName == "insertNewInvitation")
   $result = insertNewInvitation($relatedEvent, $relatedTicket, $host, $guest);
   echo ($result);
 }
+elseif ($commandName == "getInvitationsByUserID")
+{
+  $invitations = json_encode(getInvitationsByUserID($parameter));
+  echo($invitations);
+}
 
 function validRequest($req)
 {

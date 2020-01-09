@@ -48,8 +48,8 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
     @FXML
     private TextField dateTxtFld;
             
-    @FXML
-    private TextField locationTxtFld;
+    //@FXML
+    //private TextField locationTxtFld;
     
     @FXML
     private ComboBox locationSelectionComBox;
