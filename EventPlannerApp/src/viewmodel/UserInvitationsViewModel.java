@@ -48,7 +48,6 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
         loadData();
         createHandlers();
         createEventButtons();
-        int n = 1;
     }    
 
     @Override
@@ -61,7 +60,6 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
             {
                 Invitation inv = new Invitation(n);
                 invitations.add(inv);
-                int i = 1;
             }   
         }
         catch(Exception e)
@@ -104,8 +102,10 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
         HBox hBox = new HBox();
         Button btn = getInvitationButton(invitationModel);
         Button btnAccept = new Button("Accept");
+        btnAccept.getStyleClass().add("basicButtonDark");
         btnAccept.setOnAction(new AcceptInvitationEventHandler(this, invitationModel));
         Button btnDecline = new Button("Decline");
+        btnDecline.getStyleClass().add("basicButtonDark");
         hBox.getChildren().add(btn);
         hBox.getChildren().add(btnAccept);
         hBox.getChildren().add(btnDecline);

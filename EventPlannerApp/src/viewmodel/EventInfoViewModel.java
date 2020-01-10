@@ -74,7 +74,15 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     @Override
     protected void createHandlers() 
     {
-        homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
+        if(event.getOwner() != EventPlannerApp.app.getActiveUser().getID())
+        {
+            homeBtn.setOnAction(new SwitchViewModelHandler("/view/UserInvitationsView.fxml",this));
+            homeBtn.setText("Back");
+        }
+        else
+        {
+            homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
+        }
         inviteBtn.setOnAction(new CreateInvitationSwitchVMHandler(this, event));
     }
     
