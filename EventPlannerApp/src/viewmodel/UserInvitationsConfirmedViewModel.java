@@ -6,16 +6,25 @@
 package viewmodel;
 
 import EventHandlers.ShowEventInfoHandler;
+import EventHandlers.ShowTicketViewEventHandler;
 import EventHandlers.SwitchViewModelHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.Event;
 import model.Invitation;
 import org.json.simple.JSONObject;
@@ -34,6 +43,8 @@ public class UserInvitationsConfirmedViewModel extends ViewModel implements Init
     
     @FXML
     private VBox invitationsListBox;
+    
+    Parent ticketView;
     
     ArrayList<Invitation> invitations = new ArrayList<Invitation>();
     
@@ -83,6 +94,20 @@ public class UserInvitationsConfirmedViewModel extends ViewModel implements Init
         return btn;
     }
     
+    private HBox getInvitationBox(Invitation invitationModel)
+    {
+        HBox hBox = new HBox();
+        Button btn = getInvitationButton(invitationModel);
+        Button ticketBtn = new Button("Get Ticket");
+        ticketBtn.getStyleClass().add("basicButtonDark"); //TODO
+        ticketBtn.setPrefWidth(256);
+        ticketBtn.setOnAction(new ShowTicketViewEventHandler(this, invitationModel));
+        hBox.getChildren().add(btn);
+        hBox.getChildren().add(ticketBtn);
+        
+        return hBox;
+    }
+    
     private void createEventButtons()
     {
         for(Invitation n : invitations)
@@ -90,8 +115,25 @@ public class UserInvitationsConfirmedViewModel extends ViewModel implements Init
             if(n.getAccepted() == 1)
             {
                 Button btn = getInvitationButton(n);
-                invitationsListBox.getChildren().add(btn);   
+                invitationsListBox.getChildren().add(getInvitationBox(n));   
             }
+        }
+    }
+    
+    public void openTicketView(Invitation invitation)
+    {
+        try 
+        {
+            Stage secondaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            ticketView = (Parent)loader.load(getClass().getResource("/view/TicketView.fxml"));
+            Scene sc = new Scene(ticketView);
+            secondaryStage.setScene(sc);
+            secondaryStage.show();
+        } 
+        catch (Exception e) 
+        {
+            Logger.getLogger(UserInvitationsConfirmedViewModel.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     
