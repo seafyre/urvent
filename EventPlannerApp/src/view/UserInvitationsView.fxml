@@ -20,7 +20,15 @@
                 <children>
                     <Label styleClass="h1">My Invitations</Label>
                     <VBox>
-                        <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
+                        <Button styleClass="basicButton" fx:id="homeBtn">
+                            <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                                <image>
+                                  <Image url="img/baseline_home_black_18dp.png" />
+                                </image>
+                              </ImageView>
+                            </graphic>
+                        </Button>
                     </VBox>
                 </children>
             </VBox>

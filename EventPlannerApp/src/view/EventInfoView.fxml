@@ -22,7 +22,15 @@
                     <Label styleClass="h1">Event Information</Label>
                     <VBox>
                         <children>
-                            <Button styleClass="basicButton" fx:id="homeBtn">Home</Button>
+                            <Button styleClass="basicButton" fx:id="homeBtn">
+                                <graphic>
+                                  <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                                    <image>
+                                      <Image url="img/baseline_home_black_18dp.png" />
+                                    </image>
+                                  </ImageView>
+                                </graphic>
+                            </Button>
                         </children>
                     </VBox>
                 </children>
