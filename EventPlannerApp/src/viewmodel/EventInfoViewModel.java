@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import model.Event;
 import model.Location;
 import tools.APICommand;
@@ -47,6 +49,9 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     @FXML
     private Button inviteBtn;
     
+    @FXML
+    private WebView webView;
+    
     private Event event;
     private Location location;
     
@@ -61,6 +66,7 @@ public class EventInfoViewModel extends ViewModel implements Initializable
         createHandlers();
         setLabelText();
         setEditPrivileges();
+        loadGMaps(location.getCoordinates()[0],location.getCoordinates()[1]);
     }    
 
     @Override
@@ -116,6 +122,12 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     {
         Location l = new Location(HTTP.get(APICommand.getLocationByID(ID)));
         return l;
+    }
+    
+    private void loadGMaps(float latitude, float longitude)
+    {
+        WebEngine eng = webView.getEngine();
+        eng.load("https://www.google.com/maps/@?api=1&map_action=map&center=" + latitude + "," + longitude + "&zoom=12&basemap=terrain");
     }
     
 }

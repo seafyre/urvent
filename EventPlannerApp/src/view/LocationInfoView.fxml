@@ -8,6 +8,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
 
 <ScrollPane id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.LocationInfoViewModel">
     <stylesheets>
@@ -26,7 +27,12 @@
             </VBox>
             <VBox>
                 <children>
-                    <Label styleClass="h3" fx:id="locNameLbl">Location Name</Label>
+                    <Label styleClass="h2" fx:id="locNameLbl">Location Name</Label>
+                    <VBox maxWidth="512" maxHeight="512" >
+                        <children>
+                            <WebView fx:id="webView" prefWidth="512" prefHeight="512"></WebView>
+                        </children>
+                    </VBox>
                     <Label styleClass="h3" fx:id="locDescrLbl">Location Description</Label>
                     <Label styleClass="h3" fx:id="locCoordsLbl">LatLong</Label>
                     <Button styleClass="basicButtonDark" fx:id="editEventBtn">Edit Location</Button>

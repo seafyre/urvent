@@ -31,9 +31,17 @@ public class Location extends Model
         return desc;
     }
     
-    public String getCoordinates()
+    /**
+     * 
+     * @return array containing lat and long
+     */
+    public float[] getCoordinates()
     {
-        return coordinates;
+        String[] coordSplit = this.coordinates.split(",");
+        float[] coords = new float[2];
+        coords[0] = Float.valueOf(coordSplit[0]);
+        coords[1] = Float.valueOf(coordSplit[1]);
+        return coords;
     }
     
     public int getOwner()

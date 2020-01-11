@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import model.Location;
 
 /**
@@ -34,6 +36,9 @@ public class LocationInfoViewModel extends ViewModel implements Initializable
     @FXML
     private Label locCoordsLbl;
     
+    @FXML
+    private WebView webView;
+    
     Location location;
     /**
      * Initializes the controller class.
@@ -44,6 +49,7 @@ public class LocationInfoViewModel extends ViewModel implements Initializable
         loadData();
         setLabels();
         createHandlers();
+        loadGMaps(location.getCoordinates()[0],location.getCoordinates()[1]);
     }    
 
     @Override
@@ -63,7 +69,16 @@ public class LocationInfoViewModel extends ViewModel implements Initializable
     {
         locNameLbl.setText(location.getName());
         locDescrLbl.setText(location.getDescr());
-        locCoordsLbl.setText(location.getCoordinates());
+        float lat = location.getCoordinates()[0];
+        float longi = location.getCoordinates()[1];
+        String coordsStr = String.valueOf(lat) + "," + String.valueOf(longi);
+        locCoordsLbl.setText(coordsStr);
+    }
+    
+    private void loadGMaps(float latitude, float longitude)
+    {
+        WebEngine eng = webView.getEngine();
+        eng.load("https://www.google.com/maps/@?api=1&map_action=map&center=" + latitude + "," + longitude + "&zoom=12&basemap=terrain");
     }
     
 }

@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/model/Location.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateInvitationConfirmButtonHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/ShowUserInviteHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/UserInvitationsView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/tools/HTTP.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/UserInvitationsConfirmedViewModel.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/model/Ticket.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateAccountConfirmEventHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/CreateInvitationViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/EventInfoViewModel.java</file>
