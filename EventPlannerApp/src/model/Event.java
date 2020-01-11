@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.Date;
 import org.json.simple.JSONObject;
 
 /**
@@ -17,6 +18,7 @@ public class Event extends Model
     private int location;
     private int owner;
     private User[] invitedUsers;
+    private String date;
     
     public Event(JSONObject json)
     {
@@ -25,6 +27,7 @@ public class Event extends Model
         this.descr = (String) json.get("descr");
         this.owner = Integer.valueOf((String)json.get("owner"));
         this.location = Integer.valueOf((String)json.get("location"));
+        this.date = (String) json.get("date");
     }
     
     public String getDescr()
@@ -40,6 +43,11 @@ public class Event extends Model
     public int getOwner()
     {
         return this.owner;
+    }
+    
+    public String getDate()
+    {
+        return date;
     }
     
     

@@ -22,6 +22,7 @@ import model.Location;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
+import tools.TextUtil;
 
 /**
  * FXML Controller class
@@ -80,9 +81,15 @@ public class UserOwnedLocationsViewModel extends ViewModel implements Initializa
     
     private void injectLocationButtonsToUI()
     {
+        boolean hasLocations = false;
         for(Location n : locations)
         {
             locationsBox.getChildren().add(getLocationButton(n));
+            hasLocations = true;
+        }
+        if(hasLocations == false)
+        {
+             locationsBox.getChildren().add(TextUtil.getNothingHereLabel()); 
         }
     }
     

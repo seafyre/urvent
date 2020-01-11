@@ -5,6 +5,8 @@
  */
 package tools;
 
+import javafx.scene.control.Label;
+
 /**
  *
  * @author Admin
@@ -35,5 +37,12 @@ public class TextUtil
             e.printStackTrace();
             return null;
         }
+    }
+    
+    public static Label getNothingHereLabel()
+    {
+        Label lbl = new Label("Nothing here :(");
+        lbl.getStyleClass().add("h2");
+        return lbl;
     }
 }

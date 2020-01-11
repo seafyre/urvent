@@ -70,9 +70,9 @@ public class APICommand
     }
     
     //owner,name,descr,location
-    public static String insertNewEvent(int owner, String name, String descr, int location)
+    public static String insertNewEvent(int owner, String name, String descr, int location, String date)
     {
-        String command = commandPrefix + "{\"cmd\":\"insertNewEvent\",\"csv\":\"false\",\"param\":\"\",\"owner\":\"" + owner + "\",\"name\":\"" + name + "\",\"descr\":\"" + descr + "\",\"location\":\"" + location + "\"}";
+        String command = commandPrefix + "{\"cmd\":\"insertNewEvent\",\"csv\":\"false\",\"param\":\"\",\"owner\":\"" + owner + "\",\"name\":\"" + name + "\",\"descr\":\"" + descr + "\",\"location\":\"" + location + "\",\"date\":\"" + date + "\"}";
         return command;
     }
     

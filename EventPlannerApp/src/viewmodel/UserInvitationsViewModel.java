@@ -23,6 +23,7 @@ import model.Invitation;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
+import tools.TextUtil;
 
 /**
  * FXML Controller class
@@ -89,6 +90,10 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
                 HBox btn = getInvitationBox(n);
                 invitationsListBox.getChildren().add(btn);   
             }
+        }
+        if(invitationsListBox.getChildren().size() == 0)
+        {
+            invitationsListBox.getChildren().add(TextUtil.getNothingHereLabel()); 
         }
     }
     

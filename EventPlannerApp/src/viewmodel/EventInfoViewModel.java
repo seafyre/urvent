@@ -21,6 +21,7 @@ import model.Event;
 import model.Location;
 import tools.APICommand;
 import tools.HTTP;
+import tools.TextUtil;
 
 /**
  * FXML Controller class
@@ -109,8 +110,9 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     private void setLabelText()
     {
         evtNameLbl.setText(event.getName());
-        this.evtDescrLbl.setText(event.getDescr());
+        this.evtDescrLbl.setText(TextUtil.format(event.getDescr(), 80));
         this.evtLocationLbl.setText(location.getName());
+        this.evtDateLbl.setText(event.getDate());
     }
     
     public void setEvent(Event e)

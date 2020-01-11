@@ -36,7 +36,7 @@
                 <children>
                     <TextField fx:id="nameTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Eventname"></TextField>
                     <TextField fx:id="descrTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Description"></TextField>
-                    <DatePicker></DatePicker>
+                    <DatePicker fx:id="datePicker"></DatePicker>
                     <TextField fx:id="dateTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Date (DD/MM/YYYY)"></TextField>
                     <!--<TextField fx:id="locationTxtFld" maxWidth="512" styleClass="basicTextField" promptText="Location"></TextField>-->
                     <ComboBox fx:id="locationSelectionComBox" maxWidth="512"></ComboBox>

@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import model.Location;
@@ -50,7 +51,7 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
     private TextField descrTxtFld;
             
     @FXML
-    private TextField dateTxtFld;
+    private DatePicker datePicker;
             
     //@FXML
     //private TextField locationTxtFld;
@@ -109,7 +110,7 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
     
     public void createNewEvent()
     {
-       JSONObject reply = HTTP.get(APICommand.insertNewEvent(EventPlannerApp.app.getActiveUser().getID() ,nameTxtFld.getText(), descrTxtFld.getText(), this.selectedLocation.getID())); //TODO choose location
+       JSONObject reply = HTTP.get(APICommand.insertNewEvent(EventPlannerApp.app.getActiveUser().getID() ,nameTxtFld.getText(), descrTxtFld.getText(), this.selectedLocation.getID(), this.datePicker.getValue().toString())); //TODO choose location
        Boolean success = (Boolean) reply.get("succ");
        if(success == true)
        {

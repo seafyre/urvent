@@ -20,6 +20,7 @@ import model.Event;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
+import tools.TextUtil;
 
 /**
  * FXML Controller class
@@ -78,9 +79,15 @@ public class UserOwnedEventsViewModel extends ViewModel implements Initializable
     
     private void injectEventButtonsToUI()
     {
+        boolean hasEvents = false;
         for(Event n : events)
         {
             eventsBox.getChildren().add(getEventButton(n));
+            hasEvents = true;
+        }
+        if(hasEvents == false)
+        {
+             eventsBox.getChildren().add(TextUtil.getNothingHereLabel()); 
         }
     }
     

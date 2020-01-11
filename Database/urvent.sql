@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 11. Jan 2020 um 12:26
+-- Erstellungszeit: 11. Jan 2020 um 14:43
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -43,19 +43,21 @@ CREATE TABLE `event` (
   `owner` int(10) UNSIGNED NOT NULL,
   `name` varchar(64) NOT NULL,
   `descr` text NOT NULL,
-  `location` int(10) UNSIGNED NOT NULL
+  `location` int(10) UNSIGNED NOT NULL,
+  `date` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `event`
 --
 
-INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`) VALUES
-(7, 4, 'te', 'teDes', 4),
-(8, 4, 'te2', 'te2Des', 4),
-(9, 4, 'te3', 'te3Des', 4),
-(10, 5, 'tb\'s houseparty', '420 blaez it faget c:', 5),
-(11, 4, 'ta\'s rudelbumsen', 'ta\'s rudelbumsen is a fuckfest', 6);
+INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`, `date`) VALUES
+(7, 4, 'te', 'teDes', 4, '01.02.2020'),
+(8, 4, 'te2', 'te2Des', 4, '01.02.2020'),
+(9, 4, 'te3', 'te3Des', 4, '01.02.2020'),
+(10, 5, 'tb\'s houseparty', '420 blaez it faget c:', 5, '01.02.2020'),
+(11, 4, 'ta\'s rudelbumsen', 'ta\'s rudelbumsen is a fuckfest', 6, '01.02.2020'),
+(12, 4, 'ta\'s bbq', 'ta has birthday and you\'re invited :DD', 7, '01.02.2020');
 
 -- --------------------------------------------------------
 
@@ -78,7 +80,8 @@ CREATE TABLE `invitation` (
 
 INSERT INTO `invitation` (`ID`, `relatedEvent`, `relatedTicket`, `host`, `guest`, `accepted`) VALUES
 (18, 10, NULL, 5, 4, 1),
-(19, 11, NULL, 4, 5, 1);
+(19, 11, NULL, 4, 5, 1),
+(20, 12, NULL, 4, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +104,8 @@ CREATE TABLE `location` (
 INSERT INTO `location` (`ID`, `name`, `descr`, `coordinates`, `owner`) VALUES
 (4, 'tl', 'tl', '0,0', 4),
 (5, 'tb\'s home', '@ home', '	2.046934,	45.318161', 5),
-(6, 'ta\'s pornokeller', 'ta\'s pornokeller offers drinks drugs and fucks', '51.514244,7.468429', 4);
+(6, 'ta\'s pornokeller', 'ta\'s pornokeller offers drinks drugs and fucks', '51.514244,7.468429', 4),
+(7, 'Candyland', 'A place of magic and wonders', '-19.258965,146.816956', 4);
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,8 @@ CREATE TABLE `ticket` (
 
 INSERT INTO `ticket` (`ID`, `owner`, `event`, `invitation`, `code`, `redeemed`) VALUES
 (6, 4, 10, 18, 'a97d485cc821dd8063d6c915d3f2d194d74368ee1d5e5ec4b08946d751cc53fd', 0),
-(7, 5, 11, 19, '39ad42d3889f54b2b0e20ad1cfcb52988089569193345c278111dcce3e74178c', 0);
+(7, 5, 11, 19, '39ad42d3889f54b2b0e20ad1cfcb52988089569193345c278111dcce3e74178c', 0),
+(8, 5, 12, 20, '864202b545d5e6c46b32ffa143eb3da9d7710c76cbe1c1b189d321a61fa0d7a2', 0);
 
 -- --------------------------------------------------------
 
@@ -146,8 +151,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `name`, `descr`, `mail`, `password`, `loginToken`) VALUES
-(4, 'ta', NULL, 'ta', 'ta', '33d4af4d581ad374a3c7083618f8f6cec8fb7561fce193118eacf3e189ce290b'),
-(5, 'tb', NULL, 'tb', 'tb', '1aad0c9ccc7cefb5e4b2ac7e09372d1f6ec2e2349982b046b63eab7ff7ee108f');
+(4, 'ta', NULL, 'ta', 'ta', '212e9c5fa2a2d28d55202337b9474bdfc0bce741c3c1fb63a1b2a23a170b820f'),
+(5, 'tb', NULL, 'tb', 'tb', '51780f07c58ff249f4038dadb24a22b9a1295f2c375c8c8114934f655dee9302');
 
 --
 -- Indizes der exportierten Tabellen
@@ -210,25 +215,25 @@ ALTER TABLE `closedevent`
 -- AUTO_INCREMENT für Tabelle `event`
 --
 ALTER TABLE `event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT für Tabelle `invitation`
 --
 ALTER TABLE `invitation`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`
 --
 ALTER TABLE `location`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT für Tabelle `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`
