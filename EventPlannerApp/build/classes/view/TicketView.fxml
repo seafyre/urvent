@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="512.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.TicketViewModel">
+<AnchorPane fx:id="AnchorPane" prefHeight="512.0" prefWidth="512.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.TicketViewModel">
     <stylesheets>
         <URL value="@/design/Style.css"/>
     </stylesheets>

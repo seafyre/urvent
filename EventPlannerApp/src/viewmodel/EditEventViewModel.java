@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 
 /**
  * FXML Controller class
@@ -20,6 +21,9 @@ import javafx.scene.control.Button;
  */
 public class EditEventViewModel extends ViewModel implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+    
     @FXML
     private Button homeBtn;
     /**
@@ -30,6 +34,7 @@ public class EditEventViewModel extends ViewModel implements Initializable
     {
         EventPlannerApp.app.setActiveVM(this);
         createHandlers();
+        removeHBar(rootPane);
     }    
 
     @Override

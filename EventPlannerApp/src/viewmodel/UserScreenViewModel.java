@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -28,6 +29,9 @@ import tools.TextUtil;
  */
 public class UserScreenViewModel extends ViewModel implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+    
     @FXML
     private Button homeBtn;
     
@@ -55,6 +59,7 @@ public class UserScreenViewModel extends ViewModel implements Initializable
         loadData();
         setLabels();
         createHandlers();
+        removeHBar(rootPane);
     }    
     
     @Override

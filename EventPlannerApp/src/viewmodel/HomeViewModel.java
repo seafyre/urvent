@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import model.User;
 import tools.APICommand;
 import tools.HTTP;
@@ -24,6 +25,9 @@ import tools.HTTP;
  */
 public class HomeViewModel extends ViewModel implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+    
     @FXML
     private Label welcomeLbl;
     
@@ -57,6 +61,7 @@ public class HomeViewModel extends ViewModel implements Initializable
         loadData();
         setLabels();
         createHandlers();
+        removeHBar(rootPane);
     }    
     
     private void setLabels ()

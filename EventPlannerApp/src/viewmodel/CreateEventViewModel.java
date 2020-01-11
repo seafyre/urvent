@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import model.Location;
 import org.json.simple.JSONObject;
@@ -30,6 +31,9 @@ import tools.HTTP;
  */
 public class CreateEventViewModel extends ViewModel  implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+    
     @FXML
     private Button homeBtn;
     
@@ -67,6 +71,7 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
         loadData();
         createHandlers();
         setupUI();
+        removeHBar(rootPane);
     }    
 
     @Override

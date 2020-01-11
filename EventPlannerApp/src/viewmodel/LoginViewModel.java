@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import model.User;
 import org.json.simple.JSONObject;
@@ -28,6 +29,7 @@ import tools.HTTP;
  */
 public class LoginViewModel extends ViewModel implements Initializable 
 {
+    
     @FXML
     private TextField mailTxtFld;
     
@@ -39,6 +41,9 @@ public class LoginViewModel extends ViewModel implements Initializable
     
     @FXML
     private Button createAccBtn;
+    
+    @FXML
+    private ScrollPane rootPane;
             
     //User user = null;
     
@@ -51,6 +56,7 @@ public class LoginViewModel extends ViewModel implements Initializable
         loadData();
         setLabels();
         createHandlers();
+        removeHBar(rootPane);
     }    
 
     @Override

@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.Event;
@@ -30,6 +31,9 @@ import tools.HTTP;
  */
 public class UserInvitationsViewModel extends ViewModel implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+    
     @FXML
     private Button homeBtn;
     
@@ -48,6 +52,7 @@ public class UserInvitationsViewModel extends ViewModel implements Initializable
         loadData();
         createHandlers();
         createEventButtons();
+        removeHBar(rootPane);
     }    
 
     @Override

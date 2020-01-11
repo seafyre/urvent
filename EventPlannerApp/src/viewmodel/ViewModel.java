@@ -6,16 +6,26 @@
 package viewmodel;
 
 import eventplannerappDELETETHISLATER.EventPlannerApp;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
 
 /**
  *
  * @author Admin
  */
-public abstract class ViewModel 
+public abstract class ViewModel
 {
     protected abstract void loadData();
     protected abstract void createHandlers();
     public Object[] params;
+    
+    public void removeHBar(ScrollPane sp)
+    {
+        sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+    }
     
     protected void clearParamDump()
     {

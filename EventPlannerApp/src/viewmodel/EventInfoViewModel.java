@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import model.Event;
@@ -28,6 +29,9 @@ import tools.HTTP;
  */
 public class EventInfoViewModel extends ViewModel implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+    
     @FXML
     private Button homeBtn;
     
@@ -67,6 +71,7 @@ public class EventInfoViewModel extends ViewModel implements Initializable
         setLabelText();
         setEditPrivileges();
         loadGMaps(location.getCoordinates()[0],location.getCoordinates()[1]);
+        removeHBar(rootPane);
     }    
 
     @Override

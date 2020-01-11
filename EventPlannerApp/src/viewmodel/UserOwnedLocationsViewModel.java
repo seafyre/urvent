@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.Event;
 import model.Location;
@@ -29,6 +30,9 @@ import tools.HTTP;
  */
 public class UserOwnedLocationsViewModel extends ViewModel implements Initializable 
 {
+    @FXML
+    private ScrollPane rootPane;
+
     @FXML
     private VBox locationsBox;
     
@@ -49,6 +53,7 @@ public class UserOwnedLocationsViewModel extends ViewModel implements Initializa
         loadData();
         createHandlers();
         injectLocationButtonsToUI();
+        removeHBar(rootPane);
     }    
 
     @Override
