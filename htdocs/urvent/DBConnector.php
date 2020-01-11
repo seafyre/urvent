@@ -84,6 +84,17 @@ function getTicketByID($ID)
 
 }
 
+function getTicketByInvitationID($ID)
+{
+	if($ID != NULL)
+	{
+		$connection = openConnection();
+		$result = $connection->query("SELECT * FROM ticket WHERE invitation = ".$ID, MYSQLI_USE_RESULT);
+		return $result;
+	}
+
+}
+
 function getLocationByID($ID)
 {
 	if($ID != NULL)
@@ -159,7 +170,7 @@ function acceptInvitation($invitationID)
 		$entry = $connection->query("UPDATE invitation SET accepted = 1 WHERE ID=".$invitationID, MYSQLI_USE_RESULT);
 		if($entry == true)
 		{
-			$reply = getReplyArray(true, "acceptInvitation", "lol");
+			$reply = getReplyArray(true, "acceptInvitation", "");
 		}
 	}
 	catch (Exception $e)
@@ -168,6 +179,14 @@ function acceptInvitation($invitationID)
 	}
 
 	return $reply;
+}
+
+function insertNewTicket($owner, $event, $invitation)
+{
+	$code = bin2hex(openssl_random_pseudo_bytes(32));
+	$connection = openConnection();
+	$entry = $connection->query("INSERT INTO ticket (owner,event,invitation,code) VALUES ($owner,$event,$invitation,\"$code\")");
+	return $entry;
 }
 
 function insertNewUser($name, $mail, $password)

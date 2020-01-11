@@ -14,6 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Invitation;
+import model.Ticket;
+import tools.APICommand;
+import tools.HTTP;
 import tools.QRGen;
 
 /**
@@ -27,6 +30,7 @@ public class TicketViewModel extends ViewModel implements Initializable
     private ImageView imgView;
     
     Invitation invitation;
+    Ticket ticket;
     /**
      * Initializes the controller class.
      */
@@ -35,19 +39,26 @@ public class TicketViewModel extends ViewModel implements Initializable
     {
         invitation = (Invitation)(EventPlannerApp.app.paramDump[0]);
         clearParamDump();
-        generateQRCode();
+        loadData();
+        generateQRCode(getTicketString());
     }    
     
-    private void generateQRCode()
+    private void generateQRCode(String codeContent)
     {
-        Image img = SwingFXUtils.toFXImage(QRGen.generateQRCode(invitation.toString()), null);
+        
+        Image img = SwingFXUtils.toFXImage(QRGen.generateQRCode(codeContent), null); //TODO
         imgView.setImage(img);
+    }
+    
+    private String getTicketString()
+    {
+        return ticket.getID() + "," + ticket.getCode();
     }
     
     @Override
     protected void loadData() 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ticket = new Ticket(HTTP.get(APICommand.getTicketByInvitationID(invitation.getID())));
     }
 
     @Override

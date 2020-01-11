@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 09. Jan 2020 um 18:34
+-- Erstellungszeit: 11. Jan 2020 um 01:03
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -51,7 +51,10 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`) VALUES
-(7, 4, 'te', 'teDes', 4);
+(7, 4, 'te', 'teDes', 4),
+(8, 4, 'te2', 'te2Des', 4),
+(9, 4, 'te3', 'te3Des', 4),
+(10, 5, 'tb\'s houseparty', '420 blaez it faget c:', 5);
 
 -- --------------------------------------------------------
 
@@ -73,7 +76,7 @@ CREATE TABLE `invitation` (
 --
 
 INSERT INTO `invitation` (`ID`, `relatedEvent`, `relatedTicket`, `host`, `guest`, `accepted`) VALUES
-(13, 7, NULL, 4, 5, 1);
+(18, 10, NULL, 5, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,8 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`ID`, `name`, `descr`, `coordinates`, `owner`) VALUES
-(4, 'tl', 'tl', '0,0', 4);
+(4, 'tl', 'tl', '0,0', 4),
+(5, 'tb\'s home', '@ home', '0.0', 5);
 
 -- --------------------------------------------------------
 
@@ -106,9 +110,17 @@ CREATE TABLE `ticket` (
   `ID` int(10) UNSIGNED NOT NULL,
   `owner` int(10) UNSIGNED NOT NULL,
   `event` int(10) UNSIGNED NOT NULL,
-  `name` varchar(64) NOT NULL,
-  `qrdata` varchar(128) NOT NULL
+  `invitation` int(10) NOT NULL,
+  `code` varchar(128) NOT NULL,
+  `redeemed` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `ticket`
+--
+
+INSERT INTO `ticket` (`ID`, `owner`, `event`, `invitation`, `code`, `redeemed`) VALUES
+(6, 4, 10, 18, 'a97d485cc821dd8063d6c915d3f2d194d74368ee1d5e5ec4b08946d751cc53fd', 0);
 
 -- --------------------------------------------------------
 
@@ -130,8 +142,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `name`, `descr`, `mail`, `password`, `loginToken`) VALUES
-(4, 'ta', NULL, 'ta', 'ta', 'd4ebfb3c5313c8fa330d114e563519aa2c83b17a10d6ccec3eba652b4c58145e'),
-(5, 'tb', NULL, 'tb', 'tb', '0348c8effd0882e2929e788198ca31ff204be287dd419f81d30159ad928ebbc0');
+(4, 'ta', NULL, 'ta', 'ta', '265b1e3e43a61dbf737840ffa494b041305b69501f28f84686bae4391b5533c5'),
+(5, 'tb', NULL, 'tb', 'tb', '2675450a13fe6689ce3f971b0c458c0975ca3c28a6322cf18a1308bbf739e5d1');
 
 --
 -- Indizes der exportierten Tabellen
@@ -194,25 +206,25 @@ ALTER TABLE `closedevent`
 -- AUTO_INCREMENT für Tabelle `event`
 --
 ALTER TABLE `event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT für Tabelle `invitation`
 --
 ALTER TABLE `invitation`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`
 --
 ALTER TABLE `location`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT für Tabelle `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`

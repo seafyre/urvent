@@ -45,6 +45,18 @@ public class APICommand
         return command;        
     }
     
+    public static String getTicketByID(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getTicketByID\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
+    }
+    
+    public static String getTicketByInvitationID(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"getTicketByInvitationID\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        return command;        
+    }
+    
     public static String tryLogin(String mail, String password)
     {
         String command = commandPrefix + "{\"cmd\":\"login\",\"csv\":\"false\",\"param\":\"" + "" +"\",\"um\":\"" + mail + "\",\"pw\":\"" + password +"\"}";
@@ -89,9 +101,9 @@ public class APICommand
         return command;        
     }
     
-    public static String acceptInvitation(int ID)
+    public static String acceptInvitation(int ID, int eventID, int ownerID)
     {
-        String command = commandPrefix + "{\"cmd\":\"acceptInvitation\",\"csv\":\"false\",\"param\":\"" + ID +"\"}";
+        String command = commandPrefix + "{\"cmd\":\"acceptInvitation\",\"csv\":\"false\",\"param\":\"" + ID +"\",\"event\":\"" + eventID + "\",\"owner\":\"" + ownerID + "\"}";
         return command;        
     }
     

@@ -5,6 +5,7 @@
  */
 package model;
 
+import eventplannerappDELETETHISLATER.EventPlannerApp;
 import org.json.simple.JSONObject;
 import tools.APICommand;
 import tools.HTTP;
@@ -62,7 +63,7 @@ public class Invitation extends Model
     
     public boolean accept()
     {
-        JSONObject reply = HTTP.get(APICommand.acceptInvitation(id));
+        JSONObject reply = HTTP.get(APICommand.acceptInvitation(id, relatedEvent, EventPlannerApp.app.getActiveUser().getID()));
         Boolean success = (Boolean)reply.get("succ");
         return success;
     }

@@ -51,6 +51,16 @@ elseif ($commandName == "getLocationByID")
   $location = json_encode(getLocationByID($parameter));
   echo($location);
 }
+elseif ($commandName == "getTicketByID")
+{
+  $ticket = json_encode(getTicketByID($parameter));
+  echo($ticket);
+}
+elseif ($commandName == "getTicketByInvitationID")
+{
+  $ticket = json_encode(getTicketByInvitationID($parameter));
+  echo($ticket);
+}
 elseif ($commandName == "insertNewUser")
 {
   $name = $command["un"];
@@ -101,7 +111,10 @@ elseif ($commandName == "getInvitationsByUserID")
 elseif ($commandName == "acceptInvitation")
 {
   $invitationID = $parameter;
+  $event = $command["event"];
+  $owner = $command["owner"];
   $result = json_encode(acceptInvitation($invitationID));
+  $res = insertNewTicket($owner, $event, $invitationID);
   echo($result);
 }
 
