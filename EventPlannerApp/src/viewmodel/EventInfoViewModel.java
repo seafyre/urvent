@@ -57,6 +57,9 @@ public class EventInfoViewModel extends ViewModel implements Initializable
     @FXML
     private WebView webView;
     
+    @FXML 
+    private Button deleteBtn;
+    
     private Event event;
     private Location location;
     
@@ -82,7 +85,7 @@ public class EventInfoViewModel extends ViewModel implements Initializable
         setLocation(loadLocation(event.getLocation()));
         clearParamDump();
     }
-
+    
     @Override
     protected void createHandlers() 
     {
@@ -96,6 +99,13 @@ public class EventInfoViewModel extends ViewModel implements Initializable
             homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
         }
         inviteBtn.setOnAction(new CreateInvitationSwitchVMHandler(this, event));
+        deleteBtn.setOnAction(e -> this.deleteEvent());
+    }
+    
+    private void deleteEvent()
+    {
+        System.out.println("teeeeeest");
+        HTTP.get(APICommand.deleteEventByID(5));
     }
     
     private void setEditPrivileges()

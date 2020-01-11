@@ -261,6 +261,12 @@ function updateEventByID($ID, $owner, $name , $descr, $location)
     $update = $connection->query("UPDATE event SET owner ='".$owner."', name = '".$name."', descr = '".$descr."', location = '".$location."' WHERE ID ='".$ID."'");
 }
 
+function deleteEventByID($ID)
+{
+	$connection = openConnection();
+	$delete = $connection->query("DELETE FROM event WHERE ID='".$ID."'");
+}
+
 function updateTicketByID($ID, $owner, $event, $name, $qrdata)
 {
     $connection = openConnection();

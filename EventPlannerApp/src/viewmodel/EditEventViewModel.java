@@ -26,6 +26,9 @@ public class EditEventViewModel extends ViewModel implements Initializable
     
     @FXML
     private Button homeBtn;
+    
+    
+    
     /**
      * Initializes the controller class.
      */

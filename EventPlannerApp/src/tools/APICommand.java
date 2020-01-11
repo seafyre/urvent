@@ -21,6 +21,12 @@ public class APICommand
         return command;
     }
     
+    public static String deleteEventByID(int ID)
+    {
+        String command = commandPrefix + "{\"cmd\":\"deleteEventByID\",\"csv\":\"false\",\"param\":\"" + ID + "\"}";
+        return command;
+    }
+    
     public static String getUserByMail(String mail, String token)
     {
         String command = commandPrefix + "{\"cmd\":\"getUserByMail\",\"csv\":\"false\",\"param\":\"" + mail +"\",\"user\":\"" + mail + "\",\"token\":\"" + token + "\"}";

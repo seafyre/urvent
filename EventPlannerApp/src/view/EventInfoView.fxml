@@ -48,6 +48,7 @@
                 <Label styleClass="h3" fx:id="evtLocationLbl">Location Name</Label>
                 <Button styleClass="basicButtonDark" fx:id="editEventBtn">Edit Event</Button>
                 <Button styleClass="basicButtonDark" fx:id="inviteBtn">Invite People</Button>
+                <Button styleClass="basicButtonDark" fx:id="deleteBtn">Delete</Button>
             </children>
         </VBox>
         </children>
