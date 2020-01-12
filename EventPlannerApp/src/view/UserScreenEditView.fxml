@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fx:id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.UserScreenViewModel">
+<ScrollPane fx:id="rootPane" prefHeight="720" prefWidth="1280" styleClass="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.UserScreenEditViewModel">
     <stylesheets>
         <URL value="@/design/Style.css"/>
     </stylesheets>
@@ -38,16 +38,19 @@
                         <image>
                         </image>
                     </ImageView>
-                    <Label styleClass="h2" fx:id="usernameLbl">Username</Label>
-                    <Label styleClass="h3" fx:id="usermailLbl">UserMail</Label>
-                    <Text styleClass="textBlockLong" fx:id="userDescrTxt">User description goes here</Text>
+                    <Label styleClass="h2" fx:id="usermailLbl">UserMail</Label>
+                    <TextField styleClass="basicTextField" fx:id="usernameTxtFld">Username</TextField>
+                    <TextField styleClass="basicTextField" fx:id="userDescrTxtFld">User description goes here</TextField>
                     <!--<Label styleClass="h1"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl" >A h1 Text</Label>
                     <Label styleClass="h2"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl2" >A h2 Text</Label>
                     <Label styleClass="h3"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl3" >A h3 Text</Label>-->
                 </children>
             </VBox>
-            <Button fx:id="editBtn" styleClass="basicButtonDark">
-                Edit
+            <Button fx:id="saveBtn" styleClass="basicButtonDark">
+                Save
+            </Button>
+            <Button fx:id="cancelBtn" styleClass="basicButtonDark">
+                Cancel
             </Button>
         </children>
     </VBox>

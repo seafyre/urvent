@@ -59,10 +59,28 @@ elseif ($commandName == "insertNewUser")
   $result = insertNewUser($name, $mail, $password);
   echo($result);
 }
+elseif ($commandName == "editUser")
+{
+  $ID = $parameter;
+  $name = $command["name"];
+  $descr = $command["descr"];
+  $result = json_encode(editUser($ID, $name, $descr));
+  echo($result);
+}
 elseif ($commandName == "getLocationByUser")
 {
   $locations = json_encode(getLocationByUser($parameter));
   echo($locations);
+}
+elseif ($commandName == "getTicketByID")
+{
+  $ticket = json_encode(getTicketByID($parameter));
+  echo($ticket);
+}
+elseif ($commandName == "getTicketByInvitationID")
+{
+  $ticket = json_encode(getTicketByInvitationID($parameter));
+  echo($ticket);
 }
 elseif ($commandName == "insertNewEvent")
 {
@@ -101,7 +119,10 @@ elseif ($commandName == "getInvitationsByUserID")
 elseif ($commandName == "acceptInvitation")
 {
   $invitationID = $parameter;
+  $event = $command["event"];
+  $owner = $command["owner"];
   $result = json_encode(acceptInvitation($invitationID));
+  $res = insertNewTicket($owner, $event, $invitationID);
   echo($result);
 }
 elseif($commandName == "deleteEventByID")

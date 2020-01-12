@@ -47,6 +47,9 @@ public class UserScreenViewModel extends ViewModel implements Initializable
     @FXML
     private Label usermailLbl;
     
+    @FXML
+    private Button editBtn;
+    
     User user = null;
     Image profileImage = null;
     /**
@@ -101,5 +104,6 @@ public class UserScreenViewModel extends ViewModel implements Initializable
     protected void createHandlers() 
     {
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml", this));
+        editBtn.setOnAction(new SwitchViewModelHandler("/view/UserScreenEditView.fxml", this));
     }
 }

@@ -41,11 +41,14 @@
                     <Label styleClass="h2" fx:id="usernameLbl">Username</Label>
                     <Label styleClass="h3" fx:id="usermailLbl">UserMail</Label>
                     <Text styleClass="textBlockLong" fx:id="userDescrTxt">User description goes here</Text>
-                    <Label styleClass="h1"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl" >A h1 Text</Label>
+                    <!--<Label styleClass="h1"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl" >A h1 Text</Label>
                     <Label styleClass="h2"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl2" >A h2 Text</Label>
-                    <Label styleClass="h3"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl3" >A h3 Text</Label>
+                    <Label styleClass="h3"  layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="Lbl3" >A h3 Text</Label>-->
                 </children>
             </VBox>
+            <Button fx:id="editBtn" styleClass="basicButtonDark">
+                Edit
+            </Button>
         </children>
     </VBox>
     </content>

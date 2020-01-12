@@ -34,6 +34,25 @@ function getUserByID($ID)
 
 }
 
+function editUser($ID, $name, $descr)
+{
+	$reply = getReplyArray(false, "editUser", "");
+	try
+	{
+		$connection = openConnection();
+		$entry = $connection->query("UPDATE user SET name =\"".$name."\",descr =\"".$descr."\" WHERE ID=".$ID);
+		if($entry == true)
+		{
+			$reply = getReplyArray(true, "editUser", "");
+		}
+	}
+	catch (Exception $e)
+	{
+		$reply = "fack";
+	}
+	return $reply;
+}
+
 function getUserByMail($mail)
 {
 	if($mail != NULL)
@@ -90,7 +109,8 @@ function getTicketByInvitationID($ID)
 	{
 		$connection = openConnection();
 		$result = $connection->query("SELECT * FROM ticket WHERE invitation = ".$ID, MYSQLI_USE_RESULT);
-		return $result;
+		$data = $result->fetch_array(MYSQLI_ASSOC);
+		return $data;
 	}
 
 }

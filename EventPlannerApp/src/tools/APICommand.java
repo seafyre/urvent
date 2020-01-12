@@ -21,6 +21,12 @@ public class APICommand
         return command;
     }
     
+    public static String editUser(int ID, String name, String descr)
+    {
+        String command = commandPrefix + "{\"cmd\":\"editUser\",\"csv\":\"false\",\"param\":\"" + ID + "\",\"name\":\"" + name + "\",\"descr\":\"" + descr + "\"}";
+        return command;
+    }
+    
     public static String deleteEventByID(int ID)
     {
         String command = commandPrefix + "{\"cmd\":\"deleteEventByID\",\"csv\":\"false\",\"param\":\"" + ID + "\"}";
