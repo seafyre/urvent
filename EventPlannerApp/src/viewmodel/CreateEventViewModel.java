@@ -53,9 +53,6 @@ public class CreateEventViewModel extends ViewModel  implements Initializable
     @FXML
     private DatePicker datePicker;
             
-    //@FXML
-    //private TextField locationTxtFld;
-    
     @FXML
     private ComboBox locationSelectionComBox;
     

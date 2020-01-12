@@ -52,4 +52,9 @@ public class EditEventViewModel extends ViewModel implements Initializable
         homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
     }
     
+    public void editEvent()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

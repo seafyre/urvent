@@ -39,13 +39,9 @@ public class EventPlannerApp extends Application
         MainStage = stage;
         loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/view/LoginView.fxml"));
-        
-        //Parent root = FXMLLoader.load(getClass().getResource("/view/SampleView.fxml"));
-        
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        //switchViewModel("/view/LoginView.fxml");
     }
 
     /**
