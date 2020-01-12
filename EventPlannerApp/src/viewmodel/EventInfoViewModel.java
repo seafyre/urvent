@@ -7,6 +7,7 @@ package viewmodel;
 
 import EventHandlers.CreateInvitationSwitchVMHandler;
 import EventHandlers.SwitchViewModelHandler;
+import EventHandlers.DeleteEventButtonHandler;
 import eventplannerappDELETETHISLATER.EventPlannerApp;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -99,10 +100,10 @@ public class EventInfoViewModel extends ViewModel implements Initializable
             homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
         }
         inviteBtn.setOnAction(new CreateInvitationSwitchVMHandler(this, event));
-        deleteBtn.setOnAction(e -> this.deleteEvent());
+        deleteBtn.setOnAction(new DeleteEventButtonHandler(this));
     }
     
-    private void deleteEvent()
+    public void deleteEvent()
     {
         System.out.println("teeeeeest");
         HTTP.get(APICommand.deleteEventByID(5));
