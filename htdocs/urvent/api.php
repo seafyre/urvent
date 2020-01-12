@@ -1,16 +1,10 @@
 <?php
 require "DBConnector.php";
 
-//sampleRequest: localhost/urvent/api.php?payload={"cmd":"getUserByID","csv":"false","param":"1","user":"usermail@mail.de","token" : "3536322425ffwsg"}
-//{"cmd":"insertNewEvent","csv":"false","param":"","owner":"0","name":"nameHere","descr":"descrHere","location":"locationHere"}
-//var_dump($_GET);
-//var_dump($_REQUEST);
-
 $command = json_decode($_REQUEST["payload"], $assoc=true);
 $commandName = $command["cmd"];
 $csv = $command["csv"];
 $parameter = $command["param"];
-//var_dump($command);
 
 if($commandName == "getUserByID")
 {
@@ -127,8 +121,11 @@ elseif ($commandName == "acceptInvitation")
 }
 elseif($commandName == "deleteEventByID")
 {
+  if (validRequest($command) == true)
+  {
     $delete = json_encode(deleteEventByID($parameter));
     echo($delete);
+  }
 }
 
 function validRequest($req)

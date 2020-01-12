@@ -14,6 +14,7 @@
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/design/Style.css</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/CreateEventViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/model/Model.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/ShowLocationInfoHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/UserOwnedLocationsView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/TicketViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/CreateAccountView.fxml</file>
@@ -21,22 +22,29 @@
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/tools/JSON.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/UserOwnedEventsView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/model/Invitation.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/EditUserSaveButtonHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/UserInvitationsViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateInvitationSwitchVMHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/tools/APICommand.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/CreateLocationView.fxml</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/UserScreenEditViewModel.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateEventConfirmButtonEventHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/tools/QRGen.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/CreateInvitationView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/CreateLocationViewModel.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/UserScreenEditView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/ShowEventInfoHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/EventInfoView.fxml</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/SelectLocationComBoxHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/model/Location.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/LoginViewModel.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/model/User.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateInvitationConfirmButtonHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/UserScreenViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/UserInvitationsView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/tools/HTTP.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/UserInvitationsConfirmedViewModel.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateLocationConfirmHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/CreateAccountConfirmEventHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/tools/TextUtil.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/SampleView.fxml</file>
@@ -48,6 +56,7 @@
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/LocationInfoView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/CreateAccountViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/ShowTicketViewEventHandler.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/LoginButtonEventHandler.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/HomeViewModel.java</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/UserInvitationsConfirmedView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/TicketView.fxml</file>
@@ -56,6 +65,7 @@
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/LoginView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/view/HomeView.fxml</file>
             <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/viewmodel/UserOwnedEventsViewModel.java</file>
+            <file>file:/C:/Users/Admin/Desktop/SoftwareProjekt/urvent/EventPlannerApp/src/EventHandlers/VMEventHandler.java</file>
         </group>
     </open-files>
 </project-private>

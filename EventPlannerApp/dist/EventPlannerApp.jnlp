@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="EventPlannerApp.jnlp">
+  <information>
+    <title>EventPlannerApp</title>
+    <vendor>Admin</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="EventPlannerApp.jar" size="73100" download="eager" />
+    <jar href="lib\core-3.3.4-SNAPSHOT-javadoc.jar" size="1081465" download="eager" />
+    <jar href="lib\core-3.3.4-SNAPSHOT-sources.jar" size="474082" download="eager" />
+    <jar href="lib\core-3.3.4-SNAPSHOT.jar" size="541103" download="eager" />
+    <jar href="lib\core-3.3.4-SNAPSHOT_proguard_base.jar" size="549750" download="eager" />
+    <jar href="lib\javase-3.1.1-20150211.225955-15.jar" size="39223" download="eager" />
+    <jar href="lib\jsonSimple.jar" size="60747" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="eventplannerappDELETETHISLATER.EventPlannerApp"  name="EventPlannerApp" />
+  <update check="always"/>
+</jnlp>
