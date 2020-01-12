@@ -127,11 +127,8 @@ elseif ($commandName == "acceptInvitation")
 }
 elseif($commandName == "deleteEventByID")
 {
-  if (validRequest($command) == true)
-  {
     $delete = json_encode(deleteEventByID($parameter));
     echo($delete);
-  }
 }
 
 function validRequest($req)

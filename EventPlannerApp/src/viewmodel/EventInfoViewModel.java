@@ -100,13 +100,19 @@ public class EventInfoViewModel extends ViewModel implements Initializable
             homeBtn.setOnAction(new SwitchViewModelHandler("/view/HomeView.fxml",this));
         }
         inviteBtn.setOnAction(new CreateInvitationSwitchVMHandler(this, event));
-        deleteBtn.setOnAction(new DeleteEventButtonHandler(this));
+        if(event.getOwner() != EventPlannerApp.app.getActiveUser().getID())
+        {
+            deleteBtn.setManaged(false);//dont show delete button if user is not the owner of the event
+        }
+        else
+        {
+            deleteBtn.setOnAction(new DeleteEventButtonHandler(this));//otherwise call deleteEvent onclick
+        }
     }
     
     public void deleteEvent()
     {
-        System.out.println("teeeeeest");
-        HTTP.get(APICommand.deleteEventByID(5));
+        HTTP.get(APICommand.deleteEventByID(event.getID()));
     }
     
     private void setEditPrivileges()
