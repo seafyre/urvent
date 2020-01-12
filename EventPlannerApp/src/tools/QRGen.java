@@ -20,7 +20,7 @@ public class QRGen
     /**
      * generates a qr code from a string
      * @param Content
-     * @return QRCode
+     * @return BufferedImage QRCode
      */
     	public static BufferedImage generateQRCode(String Content)
 	{

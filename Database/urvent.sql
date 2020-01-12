@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Jan 2020 um 12:51
+-- Erstellungszeit: 12. Jan 2020 um 23:14
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -56,10 +56,10 @@ INSERT INTO `event` (`ID`, `owner`, `name`, `descr`, `location`, `date`) VALUES
 (8, 4, 'te2', 'te2Des', 4, '01.02.2020'),
 (9, 4, 'te3', 'te3Des', 4, '01.02.2020'),
 (10, 5, 'tb\'s houseparty', '420 blaez it faget c:', 5, '01.02.2020'),
-(11, 4, 'ta\'s rudelbumsen', 'ta\'s rudelbumsen is a fuckfest', 6, '01.02.2020'),
+(11, 4, 'ta\'s brave teeparty', 'hier stand vorher mal etwas anderes', 6, '01.02.2020'),
 (12, 4, 'ta\'s bbq', 'ta has birthday and you\'re invited :DD', 7, '01.02.2020'),
 (13, 6, 'tc\'s pub party', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 8, '01.02.2020'),
-(14, 6, 'husoTreffen', 'husos treffen husos', 8, NULL),
+(14, 6, 'Anonyme Irgendwas Treffen', 'Was auch immer', 8, NULL),
 (15, 7, 'Td\'s houseParty', 'just a houseparty, get drunk!', 9, NULL);
 
 -- --------------------------------------------------------
@@ -90,8 +90,9 @@ INSERT INTO `invitation` (`ID`, `relatedEvent`, `relatedTicket`, `host`, `guest`
 (23, 13, NULL, 6, 5, 1),
 (27, 11, NULL, 4, 6, 1),
 (28, 14, NULL, 6, 5, 1),
-(29, 15, NULL, 7, 4, 0),
-(30, 15, NULL, 7, 5, 0);
+(29, 15, NULL, 7, 4, 1),
+(30, 15, NULL, 7, 5, 0),
+(31, 11, NULL, 4, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,7 @@ CREATE TABLE `location` (
 INSERT INTO `location` (`ID`, `name`, `descr`, `coordinates`, `owner`) VALUES
 (4, 'tl', 'tl', '0,0', 4),
 (5, 'tb\'s home', '@ home', '	2.046934,	45.318161', 5),
-(6, 'ta\'s pornokeller', 'ta\'s pornokeller offers drinks drugs and fucks', '51.514244,7.468429', 4),
+(6, 'ta\'s pornokeller', 'ta\'s pornokeller offers drinks and porn', '51.514244,7.468429', 4),
 (7, 'Candyland', 'A place of magic and wonders', '-19.258965,146.816956', 4),
 (8, 'tc\'s Home', 'This is where tc lives ', '53.116688,-2.175320', 6),
 (9, 'TD\'s home', 'this is where td lives', '52.520008,13.404954', 7);
@@ -146,7 +147,8 @@ INSERT INTO `ticket` (`ID`, `owner`, `event`, `invitation`, `code`, `redeemed`) 
 (10, 4, 13, 22, '384864e5cd60f52705e71247b76e2d1bac59ca2229c82c8b237c199fcd3c8577', 0),
 (11, 6, 11, 27, 'c3d755f29cac645fc44d493b6bc0de13252f8a4009f5d6a5ff2a38d73b7a97b0', 0),
 (12, 5, 13, 23, '602fb90726d51b3c5727a31651af0a44e0c109c86e3e9cbb11695bac1511d438', 0),
-(13, 5, 14, 28, '6c15b18171af7ccc3fff012568c691447112f14f11c5ddd6fbd9c96d52449ff4', 0);
+(13, 5, 14, 28, '6c15b18171af7ccc3fff012568c691447112f14f11c5ddd6fbd9c96d52449ff4', 0),
+(14, 4, 15, 29, '7ec9c0e14ae6c2036e0ba59e30c22539e1d9d9be0ad66681cef67a47c8411e25', 0);
 
 -- --------------------------------------------------------
 
@@ -168,10 +170,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `name`, `descr`, `mail`, `password`, `loginToken`) VALUES
-(4, 'Test User jr.', 'This is a nice little testaccount description', 'ta@a.a', 'ta', 'fc25a296fba307a05550ca1fd30c5d8e639ab7b0643084161de5d3dd8abd09b3'),
-(5, 'TestUser Bravo', 'Bravo Test Description', 'tb', 'tb', '74862382707b9b495f12b5a1dc19b49fccb61925bdae391606963e370ec09157'),
+(4, 'Test User jr.', 'This is a nice little testaccount description for the user :)', 'ta@a.a', 'ta', '0f60d2801649cd21ed56f7cf15e5fa4941122a6c3515d62c0aa8c23fa8eb047e'),
+(5, 'TestUser Bravo', 'Bravo Test Description', 'tb', 'tb', 'c4fe57ad315e85c266335f4e42e2c7604749cde2525ac88a09d4ad9c5d541150'),
 (6, 'tc', NULL, 'tc', 'tc', 'ca7a3d657b9d5de755d7eeed3c93c6ff7e5c839a1533f72f67fe822ebb3b338f'),
-(7, 'TestUser Delta', 'Fourth TestUSer', 'td@d.d', 'td', '0796299245dd462742424c8b89821816908e7d57240b3b60b1287e68a2d3bf94');
+(7, 'TestUser Delta', 'Fourth TestUSer', 'td@d.d', 'td', '0796299245dd462742424c8b89821816908e7d57240b3b60b1287e68a2d3bf94'),
+(8, 'te', NULL, 'te', 'te', 'e3b9a3e25463455d1fd6773ab6d9de9495f300615e9c7ade543b0b1af3646d16');
 
 --
 -- Indizes der exportierten Tabellen
@@ -240,7 +243,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT für Tabelle `invitation`
 --
 ALTER TABLE `invitation`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`
@@ -252,13 +255,13 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT für Tabelle `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints der exportierten Tabellen
