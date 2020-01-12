@@ -87,7 +87,6 @@ public class HTTP
         return response;
     }
     
-    //TODO
     public static JSONObject get(String payload)
     {
         HttpURLConnection con = null;

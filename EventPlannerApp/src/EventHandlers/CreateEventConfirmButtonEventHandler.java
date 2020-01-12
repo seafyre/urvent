@@ -28,9 +28,6 @@ public class CreateEventConfirmButtonEventHandler extends VMEventHandler
     {
         CreateEventViewModel p = (CreateEventViewModel) parent;
         p.createNewEvent();
-        //TODO finish this
-        
-        //System.out.println(APICommand.insertNewEvent(EventPlannerApp.app.getActiveUser().getID(), p.getNameTxtFldText(), p.getDescrTxtFldText(), 0)); //TODO add location
     }
     
 }

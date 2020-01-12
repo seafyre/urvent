@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author Nick
+ * @author Nick, Hendrik
  */
 public abstract class Model 
 {

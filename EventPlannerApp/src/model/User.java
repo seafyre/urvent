@@ -18,15 +18,9 @@ import java.io.FileNotFoundException;
  */
 public class User extends Model 
 {
-
-
     private String mail;
     private String loginToken;
     private String descr;
-    private int eventsHosted[];
-    private int eventsInvited[];
-    private int socialScore;
-    private int ticketsOwned[];
 
     /**
      * Constructor, creates a new Model from a JSONObject

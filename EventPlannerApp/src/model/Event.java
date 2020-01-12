@@ -17,7 +17,6 @@ public class Event extends Model
     private String descr;
     private int location;
     private int owner;
-    private User[] invitedUsers;
     private String date;
     
     public Event(JSONObject json)
